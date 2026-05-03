@@ -38,3 +38,8 @@ embedded_systems/
 ## First setup after clone
 
 - See `docs/PRIMEIRO_SETUP.md` for a quick onboarding guide.
+
+## HDL environment guides
+
+- Tang Nano family: `docs/HDL_TANG_NANO_AMBIENTE.md`
+- Altera MAX II family: `docs/HDL_ALTERA_MAX_II_AMBIENTE.md`

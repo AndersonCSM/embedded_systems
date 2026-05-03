@@ -27,12 +27,12 @@ ACPI Error: No installed handler for fixed event - PowerButton (2)
 
 ### 1. Dar permissão de execução
 ```bash
-chmod +x ~/github_projects/embedded_systems/system_verilog/configs/setup_tang_nano_safe.sh
+chmod +x ~/github_projects/embedded_systems/scripts/setup_tang_nano_safe.sh
 ```
 
 ### 2. Executar o script
 ```bash
-bash ~/github_projects/embedded_systems/system_verilog/configs/setup_tang_nano_safe.sh
+bash ~/github_projects/embedded_systems/scripts/setup_tang_nano_safe.sh
 ```
 
 ### 3. O script fará:
@@ -46,13 +46,13 @@ bash ~/github_projects/embedded_systems/system_verilog/configs/setup_tang_nano_s
 
 ### 4. Verificar resultado
 ```bash
-# Ver log da execução
-cat ~/tang_nano_setup_YYYYMMDD_HHMMSS.log
+# Ver log da execução (o script grava em ./logs ou em ~/tang_nano_setup_YYYYMMDD_HHMMSS.log dependendo da configuração)
+ls -l ~/tang_nano_setup_*.log || true
 
-# Tester tools
+# Testar ferramentas
 source ~/.bashrc
-yosys --version
-nextpnr-nexus --help
+yosys --version || true
+nextpnr-nexus --help || true
 ```
 
 ---
@@ -122,7 +122,7 @@ sudo tail -f /var/log/syslog
 
 1. **Executar o script**
 ```bash
-bash ~/github_projects/embedded_systems/system_verilog/configs/setup_tang_nano_safe.sh
+bash ~/github_projects/embedded_systems/scripts/setup_tang_nano_safe.sh
 ```
 
 2. **Reconectar terminal**
@@ -139,10 +139,10 @@ openfpgaloader --detect
 
 4. **Compilar projeto de teste**
 ```bash
-# Exemplo simplificado
-cd ~/projects/tang_nano
-yosys -p "read_json design.json; synth_nexus -json design.json"
-nextpnr-nexus --json design.json --asc design.asc
+# Exemplo simplificado (ajuste caminhos conforme sua placa)
+cd hdl/tang_nano_1k/blink
+yosys -p "read_verilog top.sv; synth_gowin -json blink.json" || true
+nextpnr-nexus --json blink.json --asc blink.asc || true
 ```
 
 ---
