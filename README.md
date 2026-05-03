@@ -31,7 +31,7 @@ embedded_systems/
 - Heavy toolchains such as `oss-cad-suite/` are intentionally ignored in Git and must be installed locally.
 
 ## Technologies
-- Raspberry pi pico, esp32, cpld max II, ;
+- Raspberry pi pico zero 2W and pi pico, esp32, CPLD max II, Sipeed tang nano, FPGA boardAltera de2 115;
 - C and C++;
 - System Verilog;
 - Python3 and MicroPython.
@@ -42,5 +42,5 @@ embedded_systems/
 
 ## HDL environment guides
 
-- Tang Nano family: [docs/HDL_TANG_NANO_AMBIENTE.md](docs/HDL_TANG_NANO_AMBIENTE.md)
+- Tang Nano family: [docs/HDL_TANG_NANO_ENVIRONMENT.md](docs/HDL_TANG_NANO_ENVIRONMENT.md)
 - Altera MAX II family: [docs/HDL_ALTERA_MAX_II_AMBIENTE.md](docs/HDL_ALTERA_MAX_II_AMBIENTE.md)

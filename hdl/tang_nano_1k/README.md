@@ -3,7 +3,7 @@
 This directory uses the standard Tang Nano family environment.
 
 See the generic guide:
-- `docs/HDL_TANG_NANO_AMBIENTE.md`
+- [docs/HDL_TANG_NANO_ENVIRONMENT.md](../../docs/HDL_TANG_NANO_ENVIRONMENT.md)
 
 This folder contains:
 - Example project: `blink/` — see [Blink project](hdl/tang_nano_1k/blink/README.md)
