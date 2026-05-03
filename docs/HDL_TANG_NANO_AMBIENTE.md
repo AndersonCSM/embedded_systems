@@ -1,74 +1,68 @@
-# Ambiente de desenvolvimento para placas Tang Nano
+# Tang Nano Development Environment
 
-Guia generico para configurar o ambiente de FPGA da familia Tang Nano (1K, 20K e similares).
+Generic setup guide for the Tang Nano family (1K, 20K, and similar boards).
 
-## Escopo
+## Scope
 
-Este documento cobre o ambiente comum entre as placas Tang Nano:
-- Toolchain open-source com oss-cad-suite
-- Sintese/place-route para fluxo Gowin
-- Programacao via openFPGALoader
+This document covers the common environment for Tang Nano boards:
+- Open-source toolchain with `oss-cad-suite`
+- Synthesis / place & route for Gowin flow
+- Programming using `openFPGALoader`
 
-## Importante
+## Important
 
-A pasta `oss-cad-suite/` nao e versionada no Git porque e muito pesada.
-Apos clonar o repositorio, cada usuario deve baixar/instalar localmente.
+The `oss-cad-suite/` directory is not tracked in Git due to size. After cloning, each user should install the toolchain locally.
 
-## Estrutura recomendada por placa
+## Recommended layout per board
 
 ```text
 hdl/
   tang_nano_1k/
     blink/
-    config/
-    oss-cad-suite/   # local, ignorado no Git
+    oss-cad-suite/   # local, ignored by Git
   tang_nano_20k/
     ...
 ```
 
-## Pre-requisitos
+## Prerequisites
 
-- Linux/macOS/WSL
-- Espaco em disco (recomendado: >= 5 GB)
-- Internet para baixar toolchain
+- Linux / macOS / WSL
+- Disk space (recommended >= 5 GB)
+- Internet access to download the toolchain
 
-## Instalacao do oss-cad-suite
+## Installing oss-cad-suite
 
-Opcao A (recomendada): usar script da pasta da placa, quando existir.
-
-Exemplo para Tang Nano 1K:
+Option A (recommended): use the repository setup script when available:
 
 ```bash
-cd ~/github_projects/embedded_systems/hdl/tang_nano_1k
-bash config/setup_tang_nano_safe.sh
+cd hdl/tang_nano_1k
+bash ../../scripts/setup_tang_nano_safe.sh
 ```
 
-Opcao B (manual):
+Option B (manual):
 
 ```bash
-wget https://github.com/YosysHQ/oss-cad-suite-build/releases/download/VERSAO/oss-cad-suite-linux-x64.tgz
+wget https://github.com/YosysHQ/oss-cad-suite-build/releases/download/VERSION/oss-cad-suite-linux-x64.tgz
 tar -xzf oss-cad-suite-linux-x64.tgz
 ```
 
-Extraia para dentro da pasta da placa, por exemplo:
-- `hdl/tang_nano_1k/oss-cad-suite/`
-- `hdl/tang_nano_20k/oss-cad-suite/`
+Extract the toolchain into the board folder or to a global location such as `~/tools/oss-cad-suite/` and add its `bin/` to your `PATH`.
 
-## Ferramentas esperadas
+## Expected tools
 
 - `yosys`
-- `nextpnr-*` (varia conforme fluxo)
-- `gowin_pack`
+- `nextpnr-*` (varies by flow)
+- `gowin_pack` / `apicula`
 - `openFPGALoader`
 
-## Verificacao rapida
+## Quick check
 
 ```bash
 yosys --version
 openFPGALoader --version
 ```
 
-## Build e programacao (exemplo)
+## Build and programming example
 
 ```bash
 cd hdl/tang_nano_1k/blink
@@ -76,17 +70,18 @@ make all
 make program
 ```
 
-## Troubleshooting rapido
+## Quick troubleshooting
 
 ### oss-cad-suite not found
-- Verifique se a pasta `oss-cad-suite/` foi extraida no diretorio correto da placa.
-- Verifique variaveis de ambiente/shell profile da placa.
 
-### Permissao USB ao programar
-- Reaplique regras udev e reconecte a placa.
-- Reabra sessao para aplicar grupos de permissao.
+- Ensure the `oss-cad-suite/` directory is extracted in the expected board folder or that its `bin/` is on your `PATH`.
 
-## Referencias
+### USB permissions when programming
+
+- Reapply udev rules and reconnect the board.
+- Re-login to apply new group permissions.
+
+## References
 
 - https://github.com/YosysHQ/oss-cad-suite-build
 - https://github.com/trabucayre/openFPGALoader

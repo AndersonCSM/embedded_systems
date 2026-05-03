@@ -1,27 +1,27 @@
-# 🚦 **Sistema de Sinalização Sonora para Travessia de Pedestres**
+# 🚦 Audible Pedestrian Crossing Signal System
 
-## 📚 **Contextualização**
-Este projeto foi desenvolvido por um aluno do curso de **Tecnologia em Análise e Desenvolvimento de Sistemas (TADS)** do **IFRN - Campus Central**. O objetivo é criar um sistema de baixo custo que auxilie pessoas com deficiência visual na travessia segura de cruzamentos com sinalização sonora e luminosa.
+## Context
+This project was created by a student in the Technology in Analysis and Systems Development (TADS) program at IFRN - Campus Central. The goal is to build a low-cost system to assist visually impaired pedestrians crossing intersections using audible and visual signals.
 
-## 🎯 **Objetivos do Projeto**
-- Desenvolver um sistema de controle de sinais de trânsito para cruzamentos.  
-- Emitir sinais sonoros e visuais para garantir a travessia segura.  
-- Implementar um botão para acionamento manual do sistema.
+## Project goals
+- Develop a traffic signal control system for intersections.
+- Emit audible and visual cues to ensure safe pedestrian crossings.
+- Add a push-button to trigger the crossing sequence.
 
-## 🛠️ **Tecnologias e Ferramentas**
-- **Hardware:** Raspberry Pi Pico W, LEDs, Buzzer, Push Button, Resistores, Protoboard e Fiação.  
-- **Simulador:** Wokwi (para testes e validação do circuito).  
-- **Linguagem de Programação:** C  
+## Technologies and tools
+- Hardware: Raspberry Pi Pico W, LEDs, buzzer, push button, resistors, breadboard and wiring.
+- Simulator: Wokwi (for circuit tests and validation).
+- Programming language: C
 
-## ⚙️ **Funcionamento do Sistema**
-1. **Estado Inicial:** Os LEDs alternam entre verde, amarelo e vermelho automaticamente.  
-2. **Ao pressionar o botão:**  
-   - O sinal amarelo fica ativo por 5 segundos.  
-   - O sinal vermelho fica ativo por 15 segundos, permitindo a travessia.  
-   - O LED verde para pedestres acende e o buzzer emite som intermitente.  
-3. **Pós-travessia:** O sistema retorna ao funcionamento normal.
+## System operation
+1. Idle: LEDs cycle automatically between green, yellow and red.
+2. On button press:
+   - Yellow active for 5 seconds.
+   - Red active for 15 seconds to allow crossing.
+   - Pedestrian green LED turns on and the buzzer beeps intermittently.
+3. After crossing: system returns to normal operation.
 
-## 📝 **Como Executar o Projeto**
-1. Clone este repositório:  
-   ```bash
-   git clone https://github.com/AndersonCSM/EmbeddedSystems.git
+## How to run the project
+1. Clone this repository:
+```bash
+git clone https://github.com/AndersonCSM/EmbeddedSystems.git

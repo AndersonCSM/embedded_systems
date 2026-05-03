@@ -19,157 +19,127 @@ ACPI Error: No installed handler for fixed event - PowerButton (2)
 ### 3. **Script openfpgaloader-ubuntufix perigoso**
 - O script `curl ... | sh` executava operações de udev sem validação
 - Sem logs = impossível debugar o que deu errado
-- Sem retry/timeout = freezing em download
+# Tang Nano Setup — Safe Installer (v2.0)
 
----
+This document explains the secure setup script and how to validate the installation of the open-source FPGA toolchain for Tang Nano boards.
 
-## Como usar o script seguro
+## Root causes of previous failures
 
-### 1. Dar permissão de execução
+When analyzing system logs, three common issues were identified:
+
+1. Conflicting GNOME Shell extensions (e.g. `tilingshell`, `dash-to-panel`) that caused shell instability.
+2. ACPI errors related to the PowerButton handler on some systems.
+3. Unsafe installer scripts piped from the network (`curl | sh`) that modify udev rules without logging.
+
+## Using the safe setup script
+
+1. Make the script executable:
+
 ```bash
-chmod +x ~/github_projects/embedded_systems/scripts/setup_tang_nano_safe.sh
+chmod +x scripts/setup_tang_nano_safe.sh
 ```
 
-### 2. Executar o script
+2. Run the script:
+
 ```bash
-bash ~/github_projects/embedded_systems/scripts/setup_tang_nano_safe.sh
+bash scripts/setup_tang_nano_safe.sh
 ```
 
-### 3. O script fará:
-- ✅ Verificará espaço em disco e RAM antes de começar
-- ✅ Verificará que oss-cad-suite está em `~/tools/oss-cad-suite/`
-- ✅ Configurará PATH corretamente
-- ✅ Testará yosys e nextpnr-nexus
-- ✅ Instalará openFPGALoader via apt (não script externo perigoso)
-- ✅ Configurará regras udev corretamente
-- ✅ **Gerará log completo** para debugging
+3. What the script does
 
-### 4. Verificar resultado
+- Checks disk space and available RAM.
+- Verifies `oss-cad-suite` is available (recommended location: `~/tools/oss-cad-suite/`).
+- Configures `PATH` and shells.
+- Tests `yosys` and `nextpnr-nexus`.
+- Installs `openFPGALoader` via the system package manager (avoid unsafe external scripts).
+- Configures udev rules for FPGA programming devices.
+- Writes a detailed log for debugging.
+
+4. Verify results
+
 ```bash
-# Ver log da execução (o script grava em ./logs ou em ~/tang_nano_setup_YYYYMMDD_HHMMSS.log dependendo da configuração)
-ls -l ~/tang_nano_setup_*.log || true
+# Check logs created by the script (either in the current directory or under ~/)
+ls -1 tang_nano_setup_*.log || true
 
-# Testar ferramentas
+# Verify tools
 source ~/.bashrc
 yosys --version || true
 nextpnr-nexus --help || true
 ```
 
----
+## Expected toolchain layout
 
-## Estrutura esperada
+Recommended location:
 
-O script espera que `oss-cad-suite` esteja extraído em:
 ```
 ~/tools/oss-cad-suite/
 ├── bin/
 │   ├── yosys
 │   ├── nextpnr-nexus
-│   ├── oss-cad-suite
-│   └── (outros executáveis)
+│   └── ...
 ├── lib/
 └── share/
 ```
 
-Se você extraiu em outro lugar, mova assim:
+If you extracted the toolchain elsewhere, move it into `~/tools/` or add its `bin/` to your `PATH`.
+
+## Best practices
+
+- Avoid running `curl | sh` without reviewing the script.
+- Use the system package manager when possible.
+- Add logging (`tee`) and `set -e` to sensitive setup scripts.
+
+## Next steps
+
+1. Run the setup script:
+
 ```bash
-mkdir -p ~/tools
-# Se está em outro diretório
-mv /caminho/para/oss-cad-suite ~/tools/
+bash scripts/setup_tang_nano_safe.sh
 ```
 
----
+2. Reload your shell:
 
-## Diferenças do script v2.0
-
-| Aspecto | v1.0 | v2.0 |
-|---------|------|------|
-| **Download** | ✓ Baixa via wget | ✗ Pula (já extraído) |
-| **Verificação** | Espaço/RAM | Espaço/RAM + estrutura oss-cad-suite |
-| **Teste tools** | Apenas yosys | yosys + nextpnr-nexus |
-| **Caminho** | Genérico | Espera ~/tools/oss-cad-suite |
-
----
-
-## Evitar travamentos futuros
-
-### Desktop (GNOME)
-```bash
-# Desabilitar extensões problemáticas
-gnome-extensions disable tilingshell@ferrarodomenico.com
-gnome-extensions disable dash-to-panel@jderose9.github.com
-```
-
-### Monitoring
-```bash
-# Ver logs em tempo real
-journalctl -f
-
-# Copiar script para monitoring
-sudo tail -f /var/log/syslog
-```
-
-### Boas práticas
-- ✅ Sempre use `set -e` em scripts
-- ✅ Sempre log com tee (stdout + arquivo)
-- ✅ Sempre verificar recursos antes de instalar
-- ✅ Nunca use `curl | sh` sem review
-- ✅ Use apt/package manager quando possível
-
----
-
-## Próximas etapas
-
-1. **Executar o script**
-```bash
-bash ~/github_projects/embedded_systems/scripts/setup_tang_nano_safe.sh
-```
-
-2. **Reconectar terminal**
 ```bash
 source ~/.bashrc
 ```
 
-3. **Testar Tang Nano**
+3. Test the board:
+
 ```bash
-# Conecte o dispositivo e teste
 lsusb | grep Sipeed
 openfpgaloader --detect
 ```
 
-4. **Compilar projeto de teste**
+4. Build a test project (example):
+
 ```bash
-# Exemplo simplificado (ajuste caminhos conforme sua placa)
 cd hdl/tang_nano_1k/blink
 yosys -p "read_verilog top.sv; synth_gowin -json blink.json" || true
 nextpnr-nexus --json blink.json --asc blink.asc || true
 ```
 
----
-
 ## Troubleshooting
 
-### Erro: "oss-cad-suite não encontrado"
-```bash
-# Verificar onde está
-find ~/ -name "oss-cad-suite" -type d
+### "oss-cad-suite not found"
 
-# Se encontrar, mover para o lugar correto
+```bash
+find ~ -name "oss-cad-suite" -type d
+# If found, move it to ~/tools
 mkdir -p ~/tools
-mv /caminho/encontrado ~/tools/oss-cad-suite
+mv /path/found ~/tools/oss-cad-suite
 ```
 
-### Se o script falhar em udev
+### udev rule failures
+
 ```bash
-# Fazer manualmente
 sudo groupadd --system plugdev 2>/dev/null || true
 sudo usermod -a -G plugdev $USER
 newgrp plugdev
 ```
 
-### Se openfpgaloader não instalar
+### openFPGALoader installation
+
 ```bash
-# Build from source (alternativa)
 git clone https://github.com/trabucayre/openFPGALoader
 cd openFPGALoader
 mkdir build && cd build
@@ -178,16 +148,8 @@ make
 sudo make install
 ```
 
-### Se houver conflito de PATH
-```bash
-# Verificar PATH atual
-echo $PATH
+## Notes
 
-# Remover entradas indesejadas
-# Editar ~/.bashrc ou ~/.bashrc_tang_nano
-```
-
----
-
-**Atualizado em:** 30/04/2026  
-**Versão:** 2.0 - Otimizado para oss-cad-suite já extraído
+Updated: 30/04/2026
+Version: 2.0 — assumes oss-cad-suite already extracted
+find ~/ -name "oss-cad-suite" -type d

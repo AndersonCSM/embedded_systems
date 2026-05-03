@@ -1,22 +1,19 @@
-# Ambiente de desenvolvimento para placas Altera MAX II
+# Altera MAX II Development Environment
 
-Guia generico para configurar ambiente de desenvolvimento para placas baseadas em Altera MAX II.
+Generic guide for setting up development for boards based on Altera MAX II.
 
-## Escopo
+## Scope
 
-Este documento cobre o setup comum para placas MAX II:
-- Quartus Prime Lite (fluxo principal)
+This document covers the common setup for MAX II boards:
+- Quartus Prime Lite (primary flow)
 - USB Blaster
-- Programacao via `quartus_pgm` com `.svf`
+- Programming via `quartus_pgm` with `.svf` files
 
-## Observacao importante
+## Important note
 
-Para MAX II, use `quartus_pgm` como fluxo principal de programacao.
-O openFPGALoader nao e o caminho principal para MAX II.
+For MAX II devices use `quartus_pgm` as the primary programming tool. `openFPGALoader` can be used for auxiliary diagnostics but does not replace the Quartus flow.
 
-## 1) Instalar Quartus Prime Lite
-
-Exemplo (Linux):
+1) Install Quartus Prime Lite (example for Linux):
 
 ```bash
 tar -xzf Quartus-lite-20.1.0.711-linux.tar.gz
@@ -24,7 +21,7 @@ cd quartus/
 ./setup.sh
 ```
 
-## 2) Variaveis de ambiente
+2) Environment variables
 
 ```bash
 cat >> ~/.bashrc << 'EOF'
@@ -38,17 +35,17 @@ EOF
 source ~/.bashrc
 ```
 
-Verificacao:
+Verify:
 
 ```bash
 quartus --version
 jtagconfig
 ```
 
-## 3) Configurar USB Blaster (udev)
+3) Configure USB Blaster udev rules
 
 ```bash
-sudo bash -c 'cat > /etc/udev/rules.d/51-altera-usb-blaster.rules << "EOF"
+sudo bash -c 'cat > /etc/udev/rules.d/51-altera-usb-blaster.rules << "EOF"'
 SUBSYSTEM=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6001", MODE="0666"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6002", MODE="0666"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6003", MODE="0666"
@@ -61,14 +58,14 @@ sudo udevadm trigger
 sudo usermod -a -G dialout $USER
 ```
 
-## 4) Programar MAX II
+4) Programming MAX II
 
 ```bash
 cd hdl/max_ii/blink
 quartus_pgm -c "1-2" -m JTAG -o "P;top.svf"
 ```
 
-## 5) Diagnostico rapido
+5) Quick diagnostics
 
 ```bash
 lsusb | grep Altera
@@ -76,11 +73,11 @@ jtagconfig
 quartus_pgm -l
 ```
 
-## Nota sobre openFPGALoader
+## Notes on openFPGALoader
 
-Se necessario, pode ser instalado para diagnosticos auxiliares, mas nao substitui o fluxo padrao com Quartus para MAX II.
+If needed, `openFPGALoader` can be installed for additional diagnostics, but it does not replace the Quartus programming flow for MAX II devices.
 
-## Referencias
+## References
 
 - Quartus Prime Lite (Intel)
 - USB Blaster udev rules

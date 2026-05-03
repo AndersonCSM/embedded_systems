@@ -1,54 +1,53 @@
-# Tang Nano 1K Blink Project
+# Tang Nano 1K — Blink Project
 
-Simples projeto de LED piscante para a placa **Tang Nano 1K** usando toolchain open-source.
+Simple blinking LED example for the **Tang Nano 1K** board using the open-source toolchain.
 
 ## Hardware
 
-- **Placa**: Tang Nano 1K
-- **FPGA**: Gowin GW1NZ-1 (1K LUTs)
-- **Oscilador**: 27MHz interno
-- **LED**: D6 (LED vermelho padrão)
+- Board: Tang Nano 1K
+- FPGA: Gowin GW1NZ-1 (approx. 1k LUTs)
+- Clock: internal 27 MHz oscillator
+- LED: D6 (default red LED)
 
-## Funcionalidade
+## Functionality
 
-O projeto implementa um LED piscante com frequência de **1Hz** (0.5s ON / 0.5s OFF).
+This project implements a 1 Hz blink (0.5s ON / 0.5s OFF).
 
-### Arquitetura
+## Architecture
 
 ```
-Oscilador 27MHz 
+27 MHz oscillator
     ↓
-Contador (divisor de frequência)
+Frequency divider
     ↓
-Flip-Flop toggle
+Toggle flip-flop
     ↓
-LED Output (D6)
+LED output (D6)
 ```
 
-## Compilação
+## Build
 
-### Pré-requisitos
+### Prerequisites
 
-- oss-cad-suite (yosys, nextpnr-nexus, apicula) instalado em `../oss-cad-suite/`
-- Executar setup_tang_nano_safe.sh previamente
-- make
-- bash
+- `oss-cad-suite` (yosys, nextpnr-nexus, apicula) installed locally (recommended under `~/tools/oss-cad-suite/`), or available on `PATH`.
+- Run the setup script first: `bash scripts/setup_tang_nano_safe.sh`
+- `make`, `bash`
 
-### Build
+### Commands
 
 ```bash
-# Compilar tudo (synth + place & route + pack)
+# Full flow: synthesis, place & route, pack
 make all
 
-# Ou passo-a-passo
-make synth      # Synthesis (Yosys)
-make place      # Place & Route (nextpnr)
-make pack       # Generate bitstream (apicula)
+# Or step-by-step
+make synth
+make place
+make pack
 ```
 
-## Programação
+## Programming
 
-### Via openFPGALoader (recomendado)
+### Using openFPGALoader (recommended)
 
 ```bash
 make program
@@ -60,57 +59,60 @@ make program
 openFPGALoader -b tangnano1k blink.fs
 ```
 
-## Arquivos do Projeto
+## Project files
 
-| Arquivo | Descrição |
-|---------|-----------|
-| `top.sv` | Código SystemVerilog principal |
-| `constraints.cst` | Mapeamento de pinos (Gowin format) |
+| File | Description |
+|------|-------------|
+| `top.sv` | Top-level SystemVerilog source |
+| `constraints.cst` | Pin mapping (Gowin format) |
 | `Makefile` | Build system |
-| `build.sh` | Script automático de build |
-| `blink.json` | Síntese intermediária (gerado) |
-| `blink.config` | Place & Route intermediário (gerado) |
-| `blink.fs` | Bitstream final (gerado) |
+| `build.sh` | Build helper script |
+| `blink.json` | Synth intermediate (generated) |
+| `blink.config` | Place & route intermediate (generated) |
+| `blink.fs` | Final bitstream (generated) |
 
-## Pinos
+## Pins
 
-| Nome | Pino | Função |
-|------|------|--------|
-| `led` | D6 | Saída digital (LED vermelho) |
-| `clk` | Interno | Oscilador 27MHz |
+| Name | Pin | Function |
+|------|-----|----------|
+| `led` | D6 | LED output |
+| `clk` | internal | 27 MHz oscillator |
 
 ## Troubleshooting
 
-### Erro: "Toolchain not found"
+### Toolchain not found
+
+Ensure the toolchain is available or source the board shell profile if provided:
 
 ```bash
-source ../../.bashrc_tang_nano
+source ../../.bashrc_tang_nano || true
 ```
 
-### Erro: "OSS Cad Suite not available"
+### oss-cad-suite not available
 
-Verifique se `../oss-cad-suite/bin/yosys` existe:
+Check that `oss-cad-suite` has an executable `yosys` in its `bin/` folder:
 
 ```bash
-ls -la ../oss-cad-suite/bin/
+ls -la ../oss-cad-suite/bin/ || true
 ```
 
-### FPGA não programa
+### FPGA does not program
 
-1. Verifique cabo USB
-2. Tente modo bootloader:
-   ```bash
-   openFPGALoader -b tangnano1k -m JTAG blink.fs
-   ```
+1. Check the USB cable.
+2. Try bootloader mode:
 
-## Próximas Etapas
+```bash
+openFPGALoader -b tangnano1k -m JTAG blink.fs
+```
 
-- Adicionar botão para controlar LED
-- Implementar PWM para controlar brilho
-- Adicionar UART para comunicação
-- Usar PLL para clock de maior frequência
+## Next steps
 
-## Referências
+- Add a button to toggle the LED
+- Implement PWM for brightness control
+- Add UART for communication
+- Add a PLL for higher clocking options
+
+## References
 
 - [Gowin FPGA Documentation](https://www.gowinsemi.com/)
 - [oss-cad-suite](https://github.com/YosysHQ/oss-cad-suite-build)

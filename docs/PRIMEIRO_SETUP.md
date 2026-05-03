@@ -1,44 +1,43 @@
-# Primeiro setup apos o clone
+## First setup after clone
 
-Este guia resume o que precisa ser feito logo apos clonar o repositorio.
+This quickstart explains the minimal steps to get started after cloning the repository.
 
-## 1) Clonar e entrar no projeto
+1) Clone the repository
 
 ```bash
 git clone https://github.com/AndersonCSM/EmbeddedSystems.git
 cd EmbeddedSystems
 ```
 
-## 2) Conferir a estrutura principal
+2) Verify the main layout
 
-- `hdl/`: projetos FPGA/HDL
-- `embedded/`: projetos de microcontroladores
-- `scripts/`: scripts de setup e automacao
+- `hdl/`: FPGA / HDL projects
+- `embedded/`: microcontroller projects
+- `scripts/`: setup and automation scripts
 
-## 3) Dependencias pesadas (instalacao local)
+3) Heavy dependencies (install locally)
 
-Pastas de toolchain pesado, como `oss-cad-suite/`, sao ignoradas no Git por tamanho.
-Cada usuario deve instalar localmente na pasta esperada do projeto.
+Large toolchains such as `oss-cad-suite/` are ignored in Git due to size. Install them locally on your machine.
 
-### Tang Nano 1K (HDL)
+Tang Nano 1K (HDL) example:
 
 ```bash
 cd hdl/tang_nano_1k
-bash config/setup_tang_nano_safe.sh
+bash ../../scripts/setup_tang_nano_safe.sh
 ```
 
-Se necessario, baixe manualmente o oss-cad-suite e extraia em `hdl/tang_nano_1k/`.
+Recommendation: install `oss-cad-suite` under `~/tools/oss-cad-suite/` or another local path and add its `bin/` to your `PATH`.
 
-## 4) Primeiro build (exemplo)
+4) First build (examples)
 
-### Tang Nano 1K
+Tang Nano 1K
 
 ```bash
 cd hdl/tang_nano_1k/blink
 make all
 ```
 
-### Pico (exemplos CMake)
+Raspberry Pi Pico (CMake example)
 
 ```bash
 cd embedded/pico/blink
@@ -46,8 +45,8 @@ cmake -S . -B build
 cmake --build build
 ```
 
-## 5) Boas praticas
+5) Best practices
 
-- Nao versione pastas de toolchain baixadas localmente.
-- Mantenha artefatos de build fora do controle de versao.
-- Sempre consultar o README da pasta da placa antes de compilar.
+- Do not commit locally downloaded toolchains.
+- Keep build artifacts out of version control.
+- Read the board-level README before building.

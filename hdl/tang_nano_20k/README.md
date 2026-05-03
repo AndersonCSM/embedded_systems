@@ -1,9 +1,10 @@
 # Tang Nano 20K
 
-Esta pasta usa o mesmo ambiente base das demais placas Tang Nano.
+This folder uses the same base environment as other Tang Nano boards.
 
-Consulte o guia generico:
-- `docs/HDL_TANG_NANO_AMBIENTE.md`
 
-Observacao:
-- Toolchains pesados (como `oss-cad-suite/`) sao locais e ignorados no Git.
+See the generic guide:
+- [docs/HDL_TANG_NANO_AMBIENTE.md](../../docs/HDL_TANG_NANO_AMBIENTE.md)
+
+Notes:
+- Heavy toolchains such as `oss-cad-suite/` are local and ignored by Git.
