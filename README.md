@@ -31,7 +31,7 @@ embedded_systems/
 - Heavy toolchains such as `oss-cad-suite/` are intentionally ignored in Git and must be installed locally.
 
 ## Technologies
-- Raspberry pi pico zero 2W and pi pico, esp32, CPLD max II, Sipeed tang nano, FPGA boardAltera de2 115;
+- Raspberry pi pico zero 2W and pi pico, esp32, CPLD max II, Sipeed tang nano, FPGA  boardAltera de2 115;
 - C and C++;
 - System Verilog;
 - Python3 and MicroPython.
