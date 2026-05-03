@@ -1,24 +1,40 @@
 ## About
-Repository aimed at working on the concepts of embedded systems.
+Repository organized around embedded systems projects, with a simpler layout grouped by technology and board.
+
+## Structure
+```text
+embedded_systems/
+├── README.md
+├── docs/
+├── hdl/
+│   ├── tang_nano_1k/
+│   ├── tang_nano_20k/
+│   ├── max_ii/
+│   └── common/
+├── embedded/
+│   ├── pico/
+│   ├── keystudio/
+│   └── common/
+├── scripts/
+├── course/
+├── embarcatech/
+└── archive/
+```
+
+## Notes
+- `hdl/` groups FPGA/SystemVerilog material.
+- `embedded/` groups microcontroller projects.
+- `scripts/` holds setup and automation helpers.
+- `course/` keeps class material.
+- `embarcatech/` keeps legacy or course-specific content.
+- `archive/` is for old or inactive material.
+- Heavy toolchains such as `oss-cad-suite/` are intentionally ignored in Git and must be installed locally.
 
 ## Technologies
 - Raspberry pi pico;
+- C and C++;
 - Python3 and MicroPython.
 
-## Contact
-- Social networks: https://github.com/AndersonCSM
-- Contact email: andersoncarlos799@gmail.com
+## First setup after clone
 
----
-## Sobre
-Repositório voltado a trabalhar os conceitos de sistemas embarcados.
-
-## Tecnologias
-- Raspberry pi pico;
-- Python3 and MicroPython.
-
-## Contato
-- Redes sociais: https://github.com/AndersonCSM
-- email de contato: andersoncarlos799@gmail.com
-
----
+- See `docs/PRIMEIRO_SETUP.md` for a quick onboarding guide.

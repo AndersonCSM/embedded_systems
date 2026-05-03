@@ -1,0 +1,51 @@
+# Build artifacts and outputs
+build/
+output_files/
+*.json
+*.config
+*.fs
+*.rpt
+*.log
+
+# Quartus (Intel Altera) specific
+*.qws
+*.qarlog
+*.rpt
+*.summary
+db/
+incremental_db/
+*.qpf.bak
+
+# Simulation artifacts
+simulation/
+*.vvp
+*.vcd
+*.lxt
+*.gtkw
+
+# Backup files
+*.bak
+*~
+*.tmp
+*.swp
+*.swo
+
+# IDE specific
+# Heavy toolchains (kept local, not versioned)
+oss-cad-suite/
+**/oss-cad-suite/
+.vscode/
+*.code-workspace
+.idea/
+*.iml
+
+# Operating system files
+.DS_Store
+Thumbs.db
+.directory
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
