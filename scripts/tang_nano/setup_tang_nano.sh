@@ -1,166 +1,519 @@
 #!/bin/bash
 
 ##############################################################################
-# Script SEGURO para configurar Tang Nano 9K com oss-cad-suite + openFPGALoader
-# Evita travamentos e logs detalhados de cada etapa
+# setup_tang_nano.sh
+# Script consolidado para configurar ambiente FPGA Tang Nano (1K ou 9K)
+# 
+# Uso:
+#   ./setup_tang_nano.sh [opcoes]
+#
+# Opções:
+#   --version 1k|9k     Versão da placa (padrão: detectar automaticamente)
+#   --mode local|global Instalação local ou global (padrão: global)
+#   --verify            Apenas verificar instalação (sem instalar)
+#   --help              Exibir esta mensagem
+#
 ##############################################################################
 
-set -e  # Sair se houver erro
+set -e
 
 # Caminhos baseados na localização do script
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-OSS_CAD_DIR="$PROJECT_DIR/oss-cad-suite"
-LOG_FILE="$PROJECT_DIR/setup_tang_nano_$(date +%Y%m%d_%H%M%S).log"
+SCRIPT_NAME="$(basename "${BASH_SOURCE[0]}")"
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 
-echo "========================================" | tee "$LOG_FILE"
-echo "Tang Nano 9K - Setup Seguro" | tee -a "$LOG_FILE"
-echo "Log: $LOG_FILE" | tee -a "$LOG_FILE"
-echo "Projeto: $PROJECT_DIR" | tee -a "$LOG_FILE"
-echo "oss-cad-suite: $OSS_CAD_DIR" | tee -a "$LOG_FILE"
-echo "========================================" | tee -a "$LOG_FILE"
+# Cores
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+# Parâmetros
+PLACA="auto"                              # 1k, 9k, ou auto
+MODE="global"                             # global ou local
+VERIFY_ONLY=false
+
+LOG_FILE="fpga_setup_${TIMESTAMP}.log"
 
 # ============================================================================
-# ETAPA 1: Verificar espaço em disco e RAM
+# FUNÇÕES DE LOG
 # ============================================================================
-echo "" | tee -a "$LOG_FILE"
-echo "[1/5] Verificando recursos do sistema..." | tee -a "$LOG_FILE"
 
-DISK_FREE=$(df /home | tail -1 | awk '{print $4}')
-RAM_AVAILABLE=$(free | grep Mem | awk '{print $7}')
+log() {
+    echo -e "${GREEN}[✓]${NC} $1"
+}
 
-echo "  ✓ Espaço livre em /home: $((DISK_FREE / 1024 / 1024))GB" | tee -a "$LOG_FILE"
-echo "  ✓ RAM disponível: $((RAM_AVAILABLE / 1024 / 1024))GB" | tee -a "$LOG_FILE"
+warn() {
+    echo -e "${YELLOW}[⚠]${NC} $1"
+}
 
-if [ "$DISK_FREE" -lt 5242880 ]; then
-    echo "  ✗ ERRO: Menos de 5GB livres! Libere espaço antes de continuar." | tee -a "$LOG_FILE"
+error() {
+    echo -e "${RED}[✗]${NC} $1" >&2
     exit 1
-fi
+}
 
-if [ "$RAM_AVAILABLE" -lt 1048576 ]; then
-    echo "  ⚠ AVISO: Menos de 1GB RAM disponível. Isso pode causar lentidão." | tee -a "$LOG_FILE"
-fi
+header() {
+    echo -e "\n${BLUE}════════════════════════════════════════${NC}"
+    echo -e "${BLUE}$1${NC}"
+    echo -e "${BLUE}════════════════════════════════════════${NC}\n"
+}
 
-# ============================================================================
-# ETAPA 2: Baixar e instalar oss-cad-suite (se não existir)
-# ============================================================================
-echo "" | tee -a "$LOG_FILE"
-echo "[2/5] Verificando oss-cad-suite..." | tee -a "$LOG_FILE"
-
-if [ -d "$OSS_CAD_DIR" ]; then
-    echo "  ✓ oss-cad-suite encontrado em $OSS_CAD_DIR" | tee -a "$LOG_FILE"
-    
-    # Verificar se contém os binários principais
-    if [ -f "$OSS_CAD_DIR/bin/yosys" ]; then
-        echo "  ✓ yosys encontrado" | tee -a "$LOG_FILE"
-    else
-        echo "  ⚠ AVISO: yosys não encontrado, estrutura pode estar incorreta" | tee -a "$LOG_FILE"
-    fi
-else
-    echo "  ✗ ERRO: oss-cad-suite não encontrado em $OSS_CAD_DIR" | tee -a "$LOG_FILE"
-    echo "" | tee -a "$LOG_FILE"
-    echo "  Estrutura esperada:" | tee -a "$LOG_FILE"
-    echo "     $PROJECT_DIR/" | tee -a "$LOG_FILE"
-    echo "     ├── config/" | tee -a "$LOG_FILE"
-    echo "     │   └── setup_tang_nano_safe.sh" | tee -a "$LOG_FILE"
-    echo "     └── oss-cad-suite/" | tee -a "$LOG_FILE"
-    echo "         ├── bin/  (yosys, nextpnr-nexus, etc)" | tee -a "$LOG_FILE"
-    echo "         ├── lib/" | tee -a "$LOG_FILE"
-    echo "         └── share/" | tee -a "$LOG_FILE"
-    exit 1
-fi
+info() {
+    echo -e "${BLUE}ℹ${NC} $1"
+}
 
 # ============================================================================
-# ETAPA 3: Configurar PATH
+# PARSING DE ARGUMENTOS
 # ============================================================================
-echo "" | tee -a "$LOG_FILE"
-echo "[3/5] Configurando PATH..." | tee -a "$LOG_FILE"
 
-# Criar/atualizar arquivo de configuração no diretório do projeto
-BASHRC_TANG="$PROJECT_DIR/.bashrc_tang_nano"
-cat > "$BASHRC_TANG" << EOF
-# Tang Nano 9K Configuration
-export OSS_CAD_SUITE_PATH="$OSS_CAD_DIR/bin"
-export PATH="\$OSS_CAD_SUITE_PATH:\$PATH"
+show_help() {
+    cat << 'EOF'
+setup_tang_nano.sh — Configuração de Ambiente FPGA Tang Nano
+
+SINTAXE:
+    ./setup_tang_nano.sh [opções]
+
+OPÇÕES:
+    --version 1k|9k     Versão da placa (padrão: detectar automaticamente)
+    --mode local|global Instalação local ou global (padrão: global)
+    --verify            Apenas verificar instalação existente (sem instalar)
+    --help              Exibir esta mensagem
+
+EXEMPLOS:
+
+    Setup global completo (detecta placa automaticamente):
+    $ ./setup_tang_nano.sh
+
+    Setup para Tang Nano 1K (instalação global):
+    $ ./setup_tang_nano.sh --version 1k
+
+    Setup para Tang Nano 9K (instalação local, sem sudo):
+    $ ./setup_tang_nano.sh --version 9k --mode local
+
+    Apenas verificar se tudo está configurado:
+    $ ./setup_tang_nano.sh --verify
+
+MODOS:
+
+    • global: Instala ferramentas globalmente em /home/tools/
+             Requer sudo, configurar ~/.bashrc
+             Recomendado para uso compartilhado
+
+    • local:  Instala ferramentas localmente no diretório do script
+             Não requer sudo, cria arquivo de configuração local
+             Bom para ambiente isolado
+
 EOF
+}
 
-echo "  ✓ Configuração salva em: $BASHRC_TANG" | tee -a "$LOG_FILE"
-echo "  → Para usar, execute:" | tee -a "$LOG_FILE"
-echo "    source $BASHRC_TANG" | tee -a "$LOG_FILE"
-
-# Carregar configuração
-source "$BASHRC_TANG"
-
-# Testar
-echo "  → Testando ferramentas..." | tee -a "$LOG_FILE"
-if "$OSS_CAD_DIR/bin/yosys" --version >> "$LOG_FILE" 2>&1; then
-    YOSYS_VERSION=$("$OSS_CAD_DIR/bin/yosys" --version 2>/dev/null | head -1)
-    echo "  ✓ yosys disponível: $YOSYS_VERSION" | tee -a "$LOG_FILE"
-else
-    echo "  ✗ ERRO: yosys não funcionou" | tee -a "$LOG_FILE"
-    exit 1
-fi
-
-if "$OSS_CAD_DIR/bin/nextpnr-nexus" --help >> "$LOG_FILE" 2>&1 | head -1; then
-    echo "  ✓ nextpnr-nexus disponível" | tee -a "$LOG_FILE"
-fi
+# Parse argumentos
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --version)
+            PLACA="$2"
+            if [[ ! "$PLACA" =~ ^(1k|9k|auto)$ ]]; then
+                error "Placa inválida: $PLACA (use: 1k, 9k, ou auto)"
+            fi
+            shift 2
+            ;;
+        --mode)
+            MODE="$2"
+            if [[ ! "$MODE" =~ ^(local|global)$ ]]; then
+                error "Modo inválido: $MODE (use: local ou global)"
+            fi
+            shift 2
+            ;;
+        --verify)
+            VERIFY_ONLY=true
+            shift
+            ;;
+        --help)
+            show_help
+            exit 0
+            ;;
+        *)
+            error "Argumento desconhecido: $1. Use --help para ajuda."
+            ;;
+    esac
+done
 
 # ============================================================================
-# ETAPA 4: Instalar openFPGALoader (seguro)
+# DETECÇÃO DE PLACA
 # ============================================================================
-echo "" | tee -a "$LOG_FILE"
-echo "[4/5] Configurando openFPGALoader..." | tee -a "$LOG_FILE"
 
-# Instalar com apt (mais seguro)
-echo "  → Instalando openFPGALoader via apt..." | tee -a "$LOG_FILE"
+detect_board() {
+    header "Detectando Placa"
+    
+    if lsusb 2>/dev/null | grep -qi "sipeed"; then
+        log "Tang Nano detectada"
+        echo "1k"
+    else
+        warn "Nenhuma placa Tang Nano detectada via USB"
+        echo "auto"
+    fi
+}
 
-if ! sudo apt-get update >> "$LOG_FILE" 2>&1; then
-    echo "  ⚠ AVISO: apt update falhou, continuando..." | tee -a "$LOG_FILE"
-fi
-
-if sudo apt-get install -y openfpgaloader >> "$LOG_FILE" 2>&1; then
-    echo "  ✓ openFPGALoader instalado" | tee -a "$LOG_FILE"
-    if openfpgaloader --help >> "$LOG_FILE" 2>&1; then
-        echo "  ✓ openFPGALoader funcional" | tee -a "$LOG_FILE"
+# Se placa em "auto", tentar detectar
+if [ "$PLACA" = "auto" ]; then
+    PLACA=$(detect_board)
+    if [ "$PLACA" = "auto" ]; then
+        warn "Não foi possível detectar automaticamente"
+        info "Usando configuração padrão para Tang Nano 1K"
+        PLACA="1k"
     fi
 else
-    echo "  ⚠ AVISO: Instalação via apt falhou. Pulando openFPGALoader por agora." | tee -a "$LOG_FILE"
+    header "Configuração"
+    log "Placa: Tang Nano $PLACA"
 fi
 
 # ============================================================================
-# ETAPA 5: Configurar regras udev (se necessário)
+# CONFIGURAÇÃO DE CAMINHOS
 # ============================================================================
-echo "" | tee -a "$LOG_FILE"
-echo "[5/5] Configurando permissões de dispositivo..." | tee -a "$LOG_FILE"
 
-# Apenas copiar regras existentes, sem script externo
-if [ -f /usr/lib/udev/rules.d/99-openfpgaloader.rules ]; then
-    echo "  → Copiando regras udev..." | tee -a "$LOG_FILE"
-    sudo cp /usr/lib/udev/rules.d/99-openfpgaloader.rules /etc/udev/rules.d/ 2>> "$LOG_FILE"
-    
-    echo "  → Recarregando regras udev..." | tee -a "$LOG_FILE"
-    sudo udevadm control --reload-rules 2>> "$LOG_FILE"
-    sudo udevadm trigger 2>> "$LOG_FILE"
-    echo "  ✓ Permissões configuradas" | tee -a "$LOG_FILE"
+if [ "$MODE" = "global" ]; then
+    TOOLS_DIR="/home/tools"
+    CONFIG_FILE="$HOME/.bashrc"
+    CONFIG_MARKER="# TANG_NANO_FPGA_SETUP"
 else
-    echo "  ⚠ AVISO: Regras padrão não encontradas" | tee -a "$LOG_FILE"
+    TOOLS_DIR="$SCRIPT_DIR/tools"
+    CONFIG_FILE="$SCRIPT_DIR/.bashrc_tang_nano"
+    CONFIG_MARKER="# TANG_NANO_FPGA_SETUP_LOCAL"
 fi
 
+OSS_CAD_DIR="$TOOLS_DIR/oss-cad-suite"
+
 # ============================================================================
-# CONCLUSÃO
+# FUNÇÃO: VERIFICAÇÃO
 # ============================================================================
-echo "" | tee -a "$LOG_FILE"
-echo "========================================" | tee -a "$LOG_FILE"
-echo "✓ Setup concluído com sucesso!" | tee -a "$LOG_FILE"
-echo "========================================" | tee -a "$LOG_FILE"
-echo "" | tee -a "$LOG_FILE"
-echo "Próximos passos:" | tee -a "$LOG_FILE"
-echo "  1. Configure o PATH em novo terminal:" | tee -a "$LOG_FILE"
-echo "     source $BASHRC_TANG" | tee -a "$LOG_FILE"
-echo "  2. Teste os comandos:" | tee -a "$LOG_FILE"
-echo "     yosys --version" | tee -a "$LOG_FILE"
-echo "     nextpnr-nexus --help" | tee -a "$LOG_FILE"
-echo "  3. Conecte a Tang Nano e teste:" | tee -a "$LOG_FILE"
-echo "     lsusb  # Procure por Sipeed" | tee -a "$LOG_FILE"
-echo "" | tee -a "$LOG_FILE"
-echo "Log completo salvo em: $LOG_FILE" | tee -a "$LOG_FILE"
+
+verify_installation() {
+    header "Verificação de Instalação"
+    
+    local success=true
+    
+    # Verificar oss-cad-suite
+    if [ -d "$OSS_CAD_DIR" ]; then
+        log "oss-cad-suite encontrado: $OSS_CAD_DIR"
+        
+        if [ -f "$OSS_CAD_DIR/bin/yosys" ]; then
+            local yosys_version=$("$OSS_CAD_DIR/bin/yosys" -version 2>&1 | head -1)
+            log "  └─ yosys: $yosys_version"
+        else
+            warn "  └─ yosys não encontrado"
+            success=false
+        fi
+        
+        if [ -f "$OSS_CAD_DIR/bin/nextpnr-gowin" ]; then
+            log "  └─ nextpnr-gowin disponível"
+        elif [ -f "$OSS_CAD_DIR/bin/nextpnr-nexus" ]; then
+            log "  └─ nextpnr-nexus disponível"
+        else
+            warn "  └─ nextpnr não encontrado"
+        fi
+    else
+        warn "oss-cad-suite não encontrado: $OSS_CAD_DIR"
+        success=false
+    fi
+    
+    # Verificar openFPGALoader
+    if command -v openFPGALoader &> /dev/null; then
+        local loader_version=$(openFPGALoader --version 2>&1 | head -1)
+        log "openFPGALoader: $loader_version"
+    else
+        warn "openFPGALoader não encontrado"
+        success=false
+    fi
+    
+    # Verificar PATH
+    if [ "$MODE" = "global" ]; then
+        if grep -q "$CONFIG_MARKER" "$CONFIG_FILE" 2>/dev/null; then
+            log "Configuração em ~/.bashrc detectada"
+        else
+            warn "Configuração em ~/.bashrc não encontrada"
+            info "Execute: source ~/.bashrc"
+        fi
+    else
+        if [ -f "$CONFIG_FILE" ]; then
+            log "Configuração local encontrada: $CONFIG_FILE"
+            info "Execute: source $CONFIG_FILE"
+        else
+            warn "Configuração local não encontrada"
+        fi
+    fi
+    
+    # Verificar udev
+    if [ -f /etc/udev/rules.d/99-fpga.rules ]; then
+        log "Regras udev encontradas"
+    else
+        warn "Regras udev não encontradas"
+    fi
+    
+    # Tentar detectar FPGA
+    info "Testando conexão com FPGA..."
+    if command -v openFPGALoader &> /dev/null; then
+        if openFPGALoader --detect 2>/dev/null | grep -q "found"; then
+            log "FPGA detectada!"
+            openFPGALoader --detect 2>/dev/null | head -10
+        else
+            warn "Nenhuma FPGA detectada (normal se desconectada)"
+        fi
+    fi
+    
+    echo ""
+    if [ "$success" = true ]; then
+        log "Verificação bem-sucedida ✓"
+        return 0
+    else
+        warn "Algumas verificações falharam. Veja acima."
+        return 1
+    fi
+}
+
+# ============================================================================
+# FUNÇÃO: INSTALAÇÃO
+# ============================================================================
+
+install_fpga_environment() {
+    header "Instalação do Ambiente FPGA"
+    
+    info "Modo: $MODE"
+    info "Placa: Tang Nano $PLACA"
+    info "Ferramentas: $TOOLS_DIR"
+    info "Log: $LOG_FILE"
+    info ""
+    
+    # ========================================================================
+    # ETAPA 1: Dependências do Sistema
+    # ========================================================================
+    
+    if [ "$MODE" = "global" ]; then
+        header "Etapa 1/5: Dependências do Sistema"
+        
+        # Verificar sudo
+        if ! sudo -n true 2>/dev/null; then
+            error "Este script requer acesso sudo. Configure 'sudo' sem senha ou execute: sudo bash $SCRIPT_NAME"
+        fi
+        
+        log "Atualizando lista de pacotes..."
+        sudo apt-get update >> "$LOG_FILE" 2>&1 || warn "apt update retornou erro (ignorando)"
+        
+        log "Instalando dependências..."
+        sudo apt-get install -y \
+            build-essential \
+            git \
+            cmake \
+            pkg-config \
+            libusb-1.0-0-dev \
+            libusb-1.0-0 \
+            libftdi1-dev \
+            libftdi-dev \
+            libmpsse-dev \
+            python3 \
+            python3-pip \
+            python3-dev \
+            wget \
+            curl >> "$LOG_FILE" 2>&1
+        
+        log "Dependências instaladas"
+    else
+        header "Etapa 1/5: Verificação de Dependências (modo local)"
+        log "Modo local: dependências do sistema já devem estar instaladas"
+    fi
+    
+    # ========================================================================
+    # ETAPA 2: oss-cad-suite
+    # ========================================================================
+    
+    header "Etapa 2/5: oss-cad-suite (Toolchain)"
+    
+    # Criar diretório
+    if [ "$MODE" = "global" ]; then
+        sudo mkdir -p "$TOOLS_DIR" >> "$LOG_FILE" 2>&1 || mkdir -p "$TOOLS_DIR"
+    else
+        mkdir -p "$TOOLS_DIR"
+    fi
+    
+    if [ -d "$OSS_CAD_DIR" ]; then
+        log "oss-cad-suite já instalado em: $OSS_CAD_DIR"
+    else
+        log "Baixando oss-cad-suite..."
+        local release_url="https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2024-04-25/oss-cad-suite-linux-x64-20240425.tgz"
+        
+        cd "$TOOLS_DIR"
+        wget -q --show-progress "$release_url" -O oss-cad-suite.tgz >> "$LOG_FILE" 2>&1 || true
+        
+        log "Extraindo..."
+        tar xzf oss-cad-suite.tgz >> "$LOG_FILE" 2>&1
+        rm oss-cad-suite.tgz
+        
+        log "oss-cad-suite instalado com sucesso"
+    fi
+    
+    # Verificar
+    if [ ! -f "$OSS_CAD_DIR/bin/yosys" ]; then
+        error "Falha ao instalar oss-cad-suite"
+    fi
+    
+    # ========================================================================
+    # ETAPA 3: openFPGALoader
+    # ========================================================================
+    
+    header "Etapa 3/5: openFPGALoader"
+    
+    if [ "$MODE" = "global" ]; then
+        log "Instalando openFPGALoader via apt..."
+        sudo apt-get install -y openfpgaloader >> "$LOG_FILE" 2>&1 || \
+            warn "Instalação via apt falhou, continuando..."
+        
+        if ! command -v openFPGALoader &> /dev/null; then
+            log "Compilando openFPGALoader do source..."
+            cd "$TOOLS_DIR"
+            
+            if [ -d "openFPGALoader" ]; then
+                log "openFPGALoader já existe, atualizando..."
+                cd openFPGALoader
+                git pull >> "$LOG_FILE" 2>&1
+            else
+                git clone https://github.com/trabucayre/openFPGALoader.git >> "$LOG_FILE" 2>&1
+                cd openFPGALoader
+            fi
+            
+            mkdir -p build && cd build
+            cmake -DCMAKE_BUILD_TYPE=Release .. >> "$LOG_FILE" 2>&1
+            make -j$(nproc) >> "$LOG_FILE" 2>&1
+            sudo make install >> "$LOG_FILE" 2>&1
+            
+            log "openFPGALoader compilado e instalado"
+        fi
+    else
+        log "Modo local: openFPGALoader deve estar instalado globalmente"
+        info "Se não tiver, execute primeiro: sudo apt-get install openfpgaloader"
+    fi
+    
+    # ========================================================================
+    # ETAPA 4: Variáveis de Ambiente
+    # ========================================================================
+    
+    header "Etapa 4/5: Variáveis de Ambiente"
+    
+    if grep -q "$CONFIG_MARKER" "$CONFIG_FILE" 2>/dev/null; then
+        log "Configuração já existe em: $CONFIG_FILE"
+    else
+        log "Adicionando configuração em: $CONFIG_FILE"
+        
+        cat >> "$CONFIG_FILE" << ENVEOF
+
+# $CONFIG_MARKER
+# Tang Nano FPGA Environment (added by setup_tang_nano.sh)
+export OSS_CAD_SUITE="$OSS_CAD_DIR"
+export PATH="\${OSS_CAD_SUITE}/bin:\$PATH"
+export LD_LIBRARY_PATH="\${OSS_CAD_SUITE}/lib:\$LD_LIBRARY_PATH"
+
+# Aliases úteis
+alias fpga_detect='openFPGALoader --detect'
+alias fpga_version='yosys -version && openFPGALoader --version'
+ENVEOF
+        
+        log "Configuração adicionada com sucesso"
+    fi
+    
+    # ========================================================================
+    # ETAPA 5: Permissões udev
+    # ========================================================================
+    
+    header "Etapa 5/5: Permissões USB/JTAG (udev)"
+    
+    if [ "$MODE" = "global" ]; then
+        log "Criando regras udev..."
+        
+        sudo tee /etc/udev/rules.d/99-fpga.rules > /dev/null << 'UDEVEOF'
+# FPGA JTAG Devices (Generic - FTDI)
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", MODE="0666"
+SUBSYSTEM=="usb", ATTR{idVendor}=="0403", MODE="0666"
+SUBSYSTEM=="usb_device", ATTR{idVendor}=="0403", MODE="0666"
+
+# Specific JTAG devices
+ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE="0666"
+ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0666"
+ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6011", MODE="0666"
+ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", MODE="0666"
+UDEVEOF
+        
+        log "Recarregando regras udev..."
+        sudo udevadm control --reload-rules >> "$LOG_FILE" 2>&1
+        sudo udevadm trigger >> "$LOG_FILE" 2>&1
+        
+        log "Permissões configuradas com sucesso"
+    else
+        info "Modo local: configure udev manualmente se necessário"
+    fi
+    
+    # ========================================================================
+    # CONCLUSÃO
+    # ========================================================================
+    
+    header "✓ Setup Concluído!"
+    
+    log "Ambiente FPGA Tang Nano $PLACA configurado com sucesso"
+    
+    echo ""
+    echo -e "${YELLOW}Próximos passos:${NC}"
+    echo ""
+    
+    if [ "$MODE" = "global" ]; then
+        echo "1. Recarregar configuração do shell:"
+        echo "   ${BLUE}source ~/.bashrc${NC}"
+        echo ""
+        echo "2. Reconecte a placa Tang Nano"
+        echo ""
+        echo "3. Testar detecção da FPGA:"
+        echo "   ${BLUE}openFPGALoader --detect${NC}"
+    else
+        echo "1. Ativar configuração local:"
+        echo "   ${BLUE}source $CONFIG_FILE${NC}"
+        echo ""
+        echo "2. Adicionar ao seu ~/.bashrc para carregar automaticamente:"
+        echo "   ${BLUE}echo 'source $CONFIG_FILE' >> ~/.bashrc${NC}"
+        echo ""
+        echo "3. Reconecte a placa Tang Nano"
+        echo ""
+        echo "4. Testar detecção da FPGA:"
+        echo "   ${BLUE}openFPGALoader --detect${NC}"
+    fi
+    
+    echo ""
+    echo -e "${YELLOW}Documentação:${NC}"
+    echo "  • Instalação: docs/hdl/TANG_NANO_LINUX.md"
+    echo "  • Workflow: docs/hdl/WORKFLOW.md"
+    echo ""
+    echo -e "${GREEN}Log completo: $LOG_FILE${NC}"
+    echo ""
+}
+
+# ============================================================================
+# MAIN
+# ============================================================================
+
+main() {
+    header "Tang Nano Setup Script"
+    
+    info "Script: $SCRIPT_NAME"
+    info "Diretório: $SCRIPT_DIR"
+    info "Data: $(date)"
+    echo ""
+    
+    if [ "$VERIFY_ONLY" = true ]; then
+        verify_installation
+    else
+        install_fpga_environment
+        
+        echo ""
+        info "Para verificar a instalação depois, execute:"
+        echo "  ${BLUE}$SCRIPT_DIR/$SCRIPT_NAME --verify${NC}"
+        echo ""
+    fi
+}
+
+# Executar
+main

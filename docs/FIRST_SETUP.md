@@ -17,16 +17,23 @@ cd EmbeddedSystems
 
 3) Heavy dependencies (install locally)
 
-Large toolchains such as `oss-cad-suite/` are ignored in Git due to size. Install them locally on your machine.
+Large toolchains such as `oss-cad-suite/` are ignored in Git due to size. Install them globally in `/home/tools/oss-cad-suite/` or another local path.
 
-Tang Nano 1K (HDL) example:
+Tang Nano family (HDL) example:
 
 ```bash
-cd hdl/tang_nano_1k
-bash ../../scripts/setup_tang_nano_safe.sh
+cd /home/tools
+sudo mkdir -p /home/tools
+wget https://github.com/YosysHQ/oss-cad-suite-build/releases/download/VERSION/oss-cad-suite-linux-x64.tgz
+sudo tar xzf oss-cad-suite-linux-x64.tgz
 ```
 
-Recommendation: install `oss-cad-suite` under `~/tools/oss-cad-suite/` or another local path and add its `bin/` to your `PATH`.
+Recommendation: install `oss-cad-suite` at `/home/tools/oss-cad-suite/` and add its `bin/` to your `PATH` in `~/.bashrc`:
+
+```bash
+export PATH="/home/tools/oss-cad-suite/bin:$PATH"
+export LD_LIBRARY_PATH="/home/tools/oss-cad-suite/lib:$LD_LIBRARY_PATH"
+```
 
 4) First build (examples)
 

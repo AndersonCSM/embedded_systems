@@ -31,7 +31,8 @@ simulation/
 *.swo
 
 # IDE specific
-# Heavy toolchains (kept local, not versioned)
+# Heavy toolchains - installed globally at /home/tools/oss-cad-suite/ (not versioned)
+# These patterns kept for safety if local installation exists
 oss-cad-suite/
 **/oss-cad-suite/
 .vscode/
