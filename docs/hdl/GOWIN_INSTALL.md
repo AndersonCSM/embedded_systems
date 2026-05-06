@@ -1,17 +1,17 @@
-# Guia — Gowin IDE no Windows para Tang Nano 1K
+# Guide — Gowin IDE on Windows for Tang Nano 1K
 
-> **Placa:** Sipeed Tang Nano 1K (GW1NZ-LV1QN48C6/I5)  
+> **Board:** Sipeed Tang Nano 1K (GW1NZ-LV1QN48C6/I5)  
 > **Software:** Gowin FPGA Designer (Education) V1.9.11.03  
-> **Sistema:** Windows 10/11  
+> **System:** Windows 10/11  
 
 ---
 
-## 📋 Sumário
+## 📋 Index
 
 1. [Download](#download)
-2. [Instalação](#instalação)
-3. [Verificação](#verificação)
-4. [Próximos Passos](#próximos-passos)
+2. [Installation](#installation)
+3. [Verification](#verification)
+4. [Next Steps](#next-steps)
 5. [Troubleshooting](#troubleshooting)
 
 ---

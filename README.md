@@ -9,12 +9,10 @@ embedded_systems/
 ├── hdl/
 │   ├── tang_nano_1k/
 │   ├── tang_nano_20k/
-│   ├── max_ii/
-│   └── common/
+│   └── max_ii/
 ├── embedded/
 │   ├── pico/
-│   ├── keystudio/
-│   └── common/
+│   └── keystudio/
 ├── scripts/
 ├── course/
 ├── embarcatech/
@@ -27,8 +25,6 @@ embedded_systems/
 - `scripts/` holds setup and automation helpers.
 - `course/` keeps class material.
 - `embarcatech/` keeps legacy or course-specific content.
-- `archive/` is for old or inactive material.
-- Heavy toolchains such as `oss-cad-suite/` are intentionally ignored in Git and must be installed locally.
 
 ## Technologies
 - Raspberry pi pico zero 2W and pi pico, esp32, CPLD max II, Sipeed tang nano, FPGA  boardAltera de2 115;
@@ -38,7 +34,7 @@ embedded_systems/
 
 ## First setup after clone
 
-- See `docs/PRIMEIRO_SETUP.md` for a quick onboarding guide.
+- See `docs/FIRST_SETUP.md` for a quick onboarding guide.
 
 ## HDL environment guides
 

@@ -1,25 +1,25 @@
-# 📚 Documentação HDL/FPGA
+# 📚 HDL/FPGA Documentation
 
-Documentação para FPGA com Tang Nano (Gowin) e Altera MAX II.
+Documentation for FPGA with Tang Nano (Gowin) and Altera MAX II.
 
 ---
 
-## 🚀 Comece Aqui
+## 🚀 Start Here
 
-### Desenvolver Projeto Blink em 3 Ambientes
+### Develop Blink Project in 3 Environments
 
-→ **[`WORKFLOW.md`](WORKFLOW.md)** — Guia passo-a-passo:
-- **Gowin IDE** (Windows, interface gráfica)
-- **Quartus Prime Lite** (Windows/Linux, interface gráfica)  
+→ **[`WORKFLOW.md`](WORKFLOW.md)** — Step-by-step guide:
+- **Gowin IDE** (Windows, graphical interface)
+- **Quartus Prime Lite** (Windows/Linux, graphical interface)  
 - **VS Code + oss-cad-suite** (Linux, terminal + editor)
 
-Cada seção é independente e completa. Escolha seu ambiente!
+Each section is independent and complete. Choose your environment!
 
 ---
 
-## 📖 Guias de Instalação
+## 📖 Installation Guides
 
-| Plataforma | SO | Arquivo |
+| Platform | OS | File |
 |-----------|-----|---------|
 | **Tang Nano** | Linux | [`TANG_NANO_LINUX.md`](TANG_NANO_LINUX.md) |
 | **Quartus** | Linux/Windows | [`QUARTUS_INSTALL.md`](QUARTUS_INSTALL.md) |
@@ -27,21 +27,21 @@ Cada seção é independente e completa. Escolha seu ambiente!
 
 ---
 
-## 📁 Projetos
+## 📁 Projects
 
-- **Tang Nano:** [`tang_nano/`](tang_nano/) — Exemplos e projetos
-- **MAX II:** [`max_ii/`](max_ii/) — Exemplos e projetos
-
----
-
-## 🔗 Próximo Passo
-
-1. Leia [`../FIRST_SETUP.md`](../FIRST_SETUP.md) se for primeira vez
-2. Consulte [`WORKFLOW.md`](WORKFLOW.md) para começar a desenvolver
+- **Tang Nano:** [`tang_nano/`](tang_nano/) — Examples and projects
+- **MAX II:** [`max_ii/`](max_ii/) — Examples and projects
 
 ---
 
-**Última atualização:** 6 de maio de 2026
+## 🔗 Next Step
+
+1. Read [`../FIRST_SETUP.md`](../FIRST_SETUP.md) if first time
+2. Refer to [`WORKFLOW.md`](WORKFLOW.md) to start developing
+
+---
+
+**Last update:** May 6, 2026
 
 ### Por Sintoma
 

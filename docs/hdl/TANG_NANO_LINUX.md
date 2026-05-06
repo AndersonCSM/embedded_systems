@@ -1,63 +1,63 @@
-# Tang Nano no Linux — Guia Completo
+# Tang Nano on Linux — Complete Guide
 
-Guia de instalação e configuração do toolchain `oss-cad-suite` para desenvolvimento FPGA com Tang Nano no Linux.
+Installation and configuration guide for the `oss-cad-suite` toolchain for FPGA development with Tang Nano on Linux.
 
-**Plataformas:** Tang Nano 1K, 20K e variantes  
+**Platforms:** Tang Nano 1K, 20K and variants  
 **Toolchain:** `oss-cad-suite` (Yosys, nextpnr, openFPGALoader)  
-**Suporte:** Linux (Ubuntu 20.04+, Debian, Fedora, etc.)
+**Support:** Linux (Ubuntu 20.04+, Debian, Fedora, etc.)
 
 ---
 
-## 📋 Índice
+## 📋 Index
 
-1. [Visão Geral](#visão-geral)
-2. [Pré-requisitos](#pré-requisitos)
-3. [Instalação do oss-cad-suite](#instalação-do-oss-cad-suite)
-4. [Configuração de Variáveis de Ambiente](#configuração-de-variáveis-de-ambiente)
-5. [Instalação de OpenFPGALoader](#instalação-de-openfpgaloader)
-6. [Configuração USB/Drivers](#configuração-usbdrivers)
-7. [Verificação de Instalação](#verificação-de-instalação)
-8. [Uso Básico](#uso-básico)
+1. [Overview](#overview)
+2. [Prerequisites](#prerequisites)
+3. [Installing oss-cad-suite](#installing-oss-cad-suite)
+4. [Configuring Environment Variables](#configuring-environment-variables)
+5. [Installing OpenFPGALoader](#installing-openfpgaloader)
+6. [USB/Driver Configuration](#usbdriver-configuration)
+7. [Verifying Installation](#verifying-installation)
+8. [Basic Usage](#basic-usage)
 9. [Troubleshooting](#troubleshooting)
 
 ---
 
-## Visão Geral
+## Overview
 
-Para trabalhar com **Tang Nano** no Linux, você precisa:
+To work with **Tang Nano** on Linux, you need:
 
-| Ferramenta | Função |
+| Tool | Function |
 |------------|--------|
-| **oss-cad-suite** | Síntese, Place & Route, Bitstream (Yosys + nextpnr) |
-| **openFPGALoader** | Programador FPGA via USB/JTAG |
-| **Drivers USB** | Comunicação com FPGA |
+| **oss-cad-suite** | Synthesis, Place & Route, Bitstream (Yosys + nextpnr) |
+| **openFPGALoader** | FPGA programmer via USB/JTAG |
+| **USB Drivers** | Communication with FPGA |
 
-### Layout Recomendado
+### Recommended Layout
 
 ```bash
 /home/tools/
-  oss-cad-suite/        # Instalação global (compartilhada)
+  oss-cad-suite/        # Global installation (shared)
     bin/
     lib/
     share/
 
 hdl/
   tang_nano_1k/
-    blink/              # Projetos
+    blink/              # Projects
     teste/
   tang_nano_20k/
 ```
 
 ---
 
-## Pré-requisitos
+## Prerequisites
 
-- **Linux:** Ubuntu 20.04 LTS ou posterior (recomendado)
-- **Espaço em disco:** ≥ 5 GB
-- **Acesso à internet:** Para download dos toolchains
-- **Acesso root/sudo:** Para instalação global
+- **Linux:** Ubuntu 20.04 LTS or later (recommended)
+- **Disk space:** ≥ 5 GB
+- **Internet access:** For downloading toolchains
+- **Root/sudo access:** For global installation
 
-### Dependências do Sistema
+### System Dependencies
 
 #### Ubuntu/Debian
 
@@ -95,9 +95,9 @@ sudo dnf install -y \
 
 ---
 
-## Instalação do oss-cad-suite
+## Installing oss-cad-suite
 
-### Opção A: Instalação Global (Recomendada)
+### Option A: Global Installation (Recommended)
 
 Instalar em `/home/tools/` para compartilhar entre projetos.
 
@@ -140,17 +140,17 @@ rm oss-cad-suite-linux-x64.tgz
 
 ---
 
-## Configuração de Variáveis de Ambiente
+## Configuring Environment Variables
 
-### 1. Editar `~/.bashrc`
+### 1. Edit `~/.bashrc`
 
 ```bash
 nano ~/.bashrc
-# ou
+# or
 vim ~/.bashrc
 ```
 
-### 2. Adicionar ao Final do Arquivo
+### 2. Add to End of File
 
 ```bash
 # === oss-cad-suite (FPGA Tang Nano) ===
@@ -159,13 +159,13 @@ export PATH="${FPGA_TOOLS}/bin:$PATH"
 export LD_LIBRARY_PATH="${FPGA_TOOLS}/lib:$LD_LIBRARY_PATH"
 ```
 
-### 3. Recarregar Configuração
+### 3. Reload Configuration
 
 ```bash
 source ~/.bashrc
 ```
 
-### 4. Verificar
+### 4. Verify
 
 ```bash
 yosys --version
@@ -175,9 +175,9 @@ openFPGALoader --version
 
 ---
 
-## Instalação de OpenFPGALoader
+## Installing OpenFPGALoader
 
-**openFPGALoader** é o programador para carregar bitstreams na FPGA.
+**openFPGALoader** is the programmer to load bitstreams into the FPGA.
 
 ### Opção A: Via Pacote (Se Disponível)
 
@@ -219,67 +219,67 @@ openFPGALoader --version
 
 ---
 
-## Configuração USB/Drivers
+## USB/Driver Configuration
 
-### 1. Conectar Tang Nano
+### 1. Connect Tang Nano
 
-Conecte a placa via USB-C.
+Connect the board via USB-C.
 
-### 2. Criar Regras udev
+### 2. Create udev Rules
 
 ```bash
 sudo tee /etc/udev/rules.d/99-fpga.rules > /dev/null << 'EOF'
 # Anlogic FPGA (Tang Nano, etc.)
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="0666"
 
-# Outros dispositivos Gowin/FTDI
+# Other Gowin/FTDI devices
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE="0666"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", MODE="0666"
 EOF
 ```
 
-### 3. Recarregar Regras
+### 3. Reload Rules
 
 ```bash
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
-### 4. Adicionar Usuário ao Grupo (Opcional, para evitar sudo)
+### 4. Add User to Group (Optional, to avoid sudo)
 
 ```bash
 sudo usermod -a -G dialout $USER
 sudo usermod -a -G plugdev $USER
 
-# Fazer login novamente para aplicar
+# Login again to apply
 exit
-# Reconecte ou execute:
+# Reconnect or run:
 # newgrp dialout
 ```
 
 ---
 
-## Verificação de Instalação
+## Verifying Installation
 
-### Checklist Completo
+### Complete Checklist
 
 ```bash
-# 1. Verificar Yosys
+# 1. Verify Yosys
 yosys -version
 
-# Saída esperada:
+# Expected output:
 # Yosys 0.26+...
 
-# 2. Verificar nextpnr
+# 2. Verify nextpnr
 nextpnr-gowin --version
 
-# 3. Verificar openFPGALoader
+# 3. Verify openFPGALoader
 openFPGALoader --version
 
-# 4. Conectar Tang Nano e detectar
+# 4. Connect Tang Nano and detect
 openFPGALoader --detect
 
-# Saída esperada:
+# Expected output:
 # found 1 device
 #   idcode 0x100681b
 #   manufacturer Gowin
@@ -289,36 +289,36 @@ openFPGALoader --detect
 
 ---
 
-## Uso Básico
+## Basic Usage
 
-### Compilar Projeto
+### Compile Project
 
 ```bash
 cd hdl/tang_nano_1k/blink
 
-# Via Makefile (se disponível)
+# Via Makefile (if available)
 make all
 
-# Ou manualmente com yosys
+# Or manually with yosys
 yosys -m gw1n -d gw1n -p "synth_gowin -json blink.json" blink.v
 
-# Place & Route com nextpnr
+# Place & Route with nextpnr
 nextpnr-gowin --json blink.json --asc blink.asc --device GW1NZ-1
 
-# Gerar bitstream
+# Generate bitstream
 gowin_pack -d GW1NZ-1 -o blink.fs blink.asc
 ```
 
-### Programar FPGA
+### Program FPGA
 
 ```bash
-# Detectar dispositivo
+# Detect device
 openFPGALoader --detect
 
-# Programar
+# Program
 openFPGALoader -b tangnano1k blink.fs
 
-# Ou com busID específico
+# Or with specific bus ID
 openFPGALoader -b tangnano1k -d "0:0000:0000" blink.fs
 ```
 
@@ -328,74 +328,74 @@ openFPGALoader -b tangnano1k -d "0:0000:0000" blink.fs
 
 ### "Command not found: yosys"
 
-**Causa:** oss-cad-suite não está no PATH
+**Cause:** oss-cad-suite not in PATH
 
-**Solução:**
+**Solution:**
 ```bash
-# 1. Verificar localização
+# 1. Check location
 ls -la /home/tools/oss-cad-suite/bin/yosys
 
-# 2. Verificar ~/.bashrc
+# 2. Check ~/.bashrc
 cat ~/.bashrc | grep "FPGA_TOOLS\|oss-cad-suite"
 
-# 3. Recarregar
+# 3. Reload
 source ~/.bashrc
 
-# 4. Testar novamente
+# 4. Test again
 yosys --version
 ```
 
-### "Device not found" ao programar
+### "Device not found" when programming
 
-**Causa:** Tang Nano não detectado, drivers ausentes ou permissões insuficientes
+**Cause:** Tang Nano not detected, missing drivers or insufficient permissions
 
-**Solução:**
+**Solution:**
 ```bash
-# 1. Verificar conexão USB
+# 1. Check USB connection
 lsusb | grep -i ftdi
 
-# 2. Reconectar placa
+# 2. Reconnect board
 
-# 3. Reaplcar regras udev
+# 3. Reapply udev rules
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 
-# 4. Se necessário, usar sudo
+# 4. If necessary, use sudo
 sudo openFPGALoader -b tangnano1k blink.fs
 
-# 5. Testar novamente
+# 5. Test again
 openFPGALoader --detect
 ```
 
-### Problemas de Permissão USB
+### USB Permission Problems
 
 ```bash
-# Adicionar usuário ao grupo plugdev
+# Add user to plugdev group
 sudo usermod -a -G plugdev $USER
 
-# Fazer logout e login para aplicar
+# Logout and login to apply
 
-# Ou executar com sudo
+# Or run with sudo
 sudo openFPGALoader --detect
 ```
 
-### Compilação lenta
+### Slow Compilation
 
-O oss-cad-suite pode ser lento em VMs ou máquinas antigas. Considere:
-- Usar `-j$(nproc)` em compilações paralelas
-- Executar em máquina host em vez de VM
+The oss-cad-suite can be slow on VMs or older machines. Consider:
+- Using `-j$(nproc)` for parallel builds
+- Running on host machine instead of VM
 
-### Erros de compilação do openFPGALoader
+### openFPGALoader Compilation Errors
 
 ```bash
-# Reinstalar dependências
+# Reinstall dependencies
 sudo apt install -y libftdi-dev libftdi1-dev libusb-1.0-0-dev
 
-# Limpar build anterior
+# Clean previous build
 rm -rf build/
 mkdir build && cd build
 
-# Recompilar
+# Recompile
 cmake -DCMAKE_BUILD_TYPE=Release ..
 make -j$(nproc)
 sudo make install
@@ -403,7 +403,7 @@ sudo make install
 
 ---
 
-## Referências
+## References
 
 - **oss-cad-suite:** https://github.com/YosysHQ/oss-cad-suite-build
 - **openFPGALoader:** https://github.com/trabucayre/openFPGALoader

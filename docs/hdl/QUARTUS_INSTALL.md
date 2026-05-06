@@ -1,21 +1,21 @@
-# Quartus Prime Lite — Instalação
+# Quartus Prime Lite — Installation
 
-Guia de instalação do Quartus Prime Lite para desenvolvimento com placas Altera MAX II.
+Guide to installing Quartus Prime Lite for development with Altera MAX II boards.
 
-**Plataforma:** Quartus Prime lite 
-**Versão Recomendada:** 20.1  
-**Suporte:** Linux e Windows  
-**Programação:** USB Blaster
+**Platform:** Quartus Prime lite  
+**Recommended Version:** 20.1  
+**Support:** Linux and Windows  
+**Programming:** USB Blaster
 
 ---
 
-## 📋 Índice
+## 📋 Index
 
-1. [Visão Geral](#visão-geral)
-2. [Instalação no Linux](#instalação-no-linux)
-3. [Instalação no Windows](#instalação-no-windows)
-4. [Configuração USB Blaster](#configuração-usb-blaster)
-5. [Programação de MAX II](#programação-de-max-ii)
+1. [Overview](#overview)
+2. [Linux Installation](#linux-installation)
+3. [Windows Installation](#windows-installation)
+4. [USB Blaster Configuration](#usb-blaster-configuration)
+5. [MAX II Programming](#max-ii-programming)
 6. [Troubleshooting](#troubleshooting)
 
 ---
