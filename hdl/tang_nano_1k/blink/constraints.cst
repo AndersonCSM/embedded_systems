@@ -1,4 +1,0 @@
-// Tang Nano 1K Pin Constraints
-// Physical pins for Gowin GW1NZ-1 FPGA
-
-set_pin_assignment {led} {pin_name = D6} {pin_direction = out}

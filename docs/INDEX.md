@@ -26,6 +26,16 @@ Refer to **[`hdl/WORKFLOW.md`](hdl/WORKFLOW.md)** for a complete guide showing h
 
 Each section is independent and complete!
 
+### Generic Gowin FPGA Workflow
+
+**[`hdl/GOWIN_WORKFLOW.md`](hdl/GOWIN_WORKFLOW.md)** — Complete portable workflow for any Gowin FPGA project:
+- Synthesis with Yosys
+- Place & Route with nextpnr-himbaechel
+- Bitstream generation with Apicula
+- Programming with openFPGALoader
+- Support for multiple boards (Tang Nano 20K, 1K, 4K, 9K)
+- Fully parameterized Makefile template
+
 ---
 
 ## 🎯 Main Index
@@ -102,6 +112,10 @@ Available projects:
 ### 2. HDL/FPGA
 → [`hdl/README.md`](hdl/README.md)
 
+**Generic Workflows:**
+- Gowin FPGA (All Boards): [`hdl/GOWIN_WORKFLOW.md`](hdl/GOWIN_WORKFLOW.md)
+- Multi-Platform Blink: [`hdl/WORKFLOW.md`](hdl/WORKFLOW.md)
+
 **Linux:**
 - Tang Nano: [`hdl/TANG_NANO_LINUX.md`](hdl/TANG_NANO_LINUX.md)
 - MAX II: [`hdl/QUARTUS_INSTALL.md`](hdl/QUARTUS_INSTALL.md)
@@ -142,7 +156,9 @@ Available projects:
 
 ```
 docs/
-├── INDEX.md                          # This file
+├── INDEWORKFLOW.md                  # Multi-platform Blink projects
+│   ├── GOWIN_WORKFLOW.md            # Generic Gowin FPGA workflow
+│   ├── X.md                          # This file
 ├── FIRST_SETUP.md                   # Initial setup
 ├── hdl/
 │   ├── README.md                    # HDL/FPGA index
