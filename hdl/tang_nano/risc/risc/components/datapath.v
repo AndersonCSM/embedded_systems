@@ -1,6 +1,7 @@
 module datapath(
         input clk, reset, RegDst, RegWrite, ALUsrc, memRead, memWrite, MemToReg,branch, jump,
         input [2:0] ALUoperation,
+
         output [5:0] opcode,func        
     );
     
@@ -9,7 +10,7 @@ module datapath(
     wire [31:0] instruction, read_data_1, read_data_2, ALU_operand2, ALU_to_Mem, operand_32, Mem_or_ALU, AluData, MemData;
         
     // instantiate instruction fetch
-    instruction_fetch_with_control_transfer instruction_fetch(
+    instruction_fetch instruction_fetch(
         .reset(reset),
         .clk(clk),
         .zero(zero),
@@ -32,7 +33,7 @@ module datapath(
         .write_register(write_register), 
         .write_data(Mem_or_ALU), 
         .reg_write(RegWrite),  
-        .clk(clk), 
+        .reg_clk(clk), 
         .reset(reset),
         .read_data_1(read_data_1),  // register-1
         .read_data_2(read_data_2)   // register-2

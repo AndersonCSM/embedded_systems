@@ -11,13 +11,15 @@ module register_file(
     output [31:0] read_data_2
 );
 
-reg [31:0] Registers [31:0]
+reg [31:0] Registers [31:0];
 
 assign read_data_1 = (!reset)? 32'h00000000  : Registers[register_read_1];
 assign read_data_2 = (!reset)? 32'h00000000  : Registers[register_read_2];
 
-always @(posedge clk) begin
-    if (reg_writ 1'b1) begin
+always @(posedge reg_clk) begin
+    $display("Writing to register %d: %d, %d", write_register, write_data,reg_write);
+    
+    if( reg_write == 1'b1 ) begin
         Registers[write_register] <= write_data;
     end
 end

@@ -12,36 +12,36 @@ module alu_unit(
         case (ALU_operation)
             // and operation
             3'b000: begin
-                result <= A & B;
+                result = A & B;
             end
             // or operation
             3'b001: begin
-                result <= A | B;
+                result = A | B;
             end
             // addition operation
             3'b010 : begin 
-                result <= A + B;
+                result = A + B;
             end
             // subtraction operation
             3'b110 : begin
-                result <= A - B;
+                result = A - B;
             end
             // less than operation
             3'b111 : begin
-                result <= (A < B) ? 32'd1 : 32'd0;
+                result = (A < B) ? 32'd1 : 32'd0;
             end
             // no operation
             default: begin
-                result <= 0;
+                result = 0;
             end
         endcase
         
         // zero flag for bne and beq
         if (result == 0) begin
-            zero <= 1;
+            zero = 1;
         end
         else begin
-            zero <= 0;
+            zero = 0;
         end
     end
     

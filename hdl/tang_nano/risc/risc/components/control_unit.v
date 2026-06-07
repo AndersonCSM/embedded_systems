@@ -1,4 +1,4 @@
-module control_unit_datapath(
+module control_unit(
      input    [5:0] opcode,   // (instr_addr[31:26])
       
      output  reg    RegWrite,  

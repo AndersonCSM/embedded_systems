@@ -1,5 +1,6 @@
 module sign_extension(
     input [15:0] input_16,
+    
     output [31:0] output_32
     );
     

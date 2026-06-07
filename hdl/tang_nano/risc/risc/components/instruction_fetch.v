@@ -1,26 +1,24 @@
-module instruction_fetch_with_control_transfer(
+module instruction_fetch(
     input reset,clk,zero,branch,jump,
     input [31:0] offset,
+
     output [31:0] instruction
     );
     
     wire [31:0] JTA, BTA, PC_plus_4;
     wire [31:0] PC_address, Actual_PC_Address, Branch_Address;
-    
-    // instantiate PC
+
+    // Registrador PC (apenas armazena o valor)
     program_counter program_counter(
-        .PC_next(Actual_PC_Address),
         .clk(clk),
         .reset(reset),
+        .PC_next(Actual_PC_Address),
         .PC(PC_address)
     );
-    
-    // instantiate counter 
-    pc_counter pc_counter(
-        .PC_address(PC_address),
-        .PC_plus_4(PC_plus_4)
-    );
-        
+
+    // Somador PC + 4
+    assign PC_plus_4 = PC_address + 32'd4;
+
     // instantiate memory
     instruction_memory instruction_memory(
         .address(PC_address),
