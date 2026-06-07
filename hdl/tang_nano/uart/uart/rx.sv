@@ -1,14 +1,13 @@
 module rx (
-    input logic clk, // entrada do clk
-    input logic rst, // entrada do reset
-    input logic en_rx, // enable para recebimento
-    input logic tick_rate, // tick rate
+    input wire clk, // entrada do clk
+    input wire rst, // entrada do reset
+    input wire en_rx, // enable para recebimento
+    input wire tick_rate, // tick rate
 
-    input logic data_in, // entrada de dados que vem por um fio
+    input wire data_in, // entrada de dados que vem por um fio
 
-    output logic [7:0] data_out, // saida de dados para um buffer de 1 byte
-    output logic done_rx, // saida para indicar que o recebimento foi concluido
-    output logic parity_error // bit de paridade de erro
+    output reg [7:0] data_out, // saida de dados para um buffer de 1 byte
+    output wire done_rx // saida para indicar que o recebimento foi concluido
 );
 
 // 1. Definindo parâmetros e registradores para FSM
@@ -17,10 +16,6 @@ parameter IDLE = 2'b00, START = 2'b01, DATA = 2'b10, STOP = 2'b11;
 reg [1:0] estado, proximo;              // dois registradores de dois bits para cada estado: atual e próximo
 reg [3:0] bit_count;                    // contador de bits de dados (0-7)
 reg [3:0] tick_counter;                 // contador de ticks (para sampling no meio do bit)
-reg [7:0] read_data;                    // registro temporário para dados lidos
-
-wire received_parity;                   // bit de paridade recebido
-wire done_rx;                           // flag de conclusão
 
 
 // 2. Sincronização do sinal de entrada (debouncing)
@@ -75,8 +70,12 @@ always @ (estado or rs232_t2 or en_rx or tick_counter) begin
 end
 
 // 5. Lógica de recepção - Executa a cada tick_rate
-always @ (posedge tick_rate) begin
-    if (estado != IDLE) begin
+always @ (posedge tick_rate or negedge rst) begin  // ← Adicionar "or negedge rst"
+    if (!rst) begin
+        tick_counter <= 4'b0000;
+        bit_count <= 4'b0000;
+    end
+    else if (estado != IDLE) begin
         tick_counter <= tick_counter + 1;
         
         if (estado == START && tick_counter == 4'b1111) begin
@@ -117,18 +116,11 @@ always@ (posedge clk or negedge rst) begin
         data_out <= data_out;
 end
 
-// 6. Captura de paridade - Combinatorial
-assign received_parity = (estado == STOP && tick_counter == 4'b0111) ? rs232_t2 : 1'b0;
+// 6. Removido: Captura e verificação de paridade (compatível com Lushay)
 
 // 7. Sinal de conclusão - Combinatorial
 assign done_rx = (estado == STOP && tick_counter == 4'b1111);
 
-// Sinal do BIT PARIDADE PAR
-// Se a contagem original de bits '1' na mensagem for ímpar, o bit de paridade é definido como 1 para tornar o total par;
-// se a contagem original for par (ou nula), o bit de paridade é definido como 0.
-// XOR : a saída é 1 se a quantidade for 1 -> O ^ 1 = 1  |  1 ^1 = 0 
-// Se encadear operações XOR ele só retorna 1 se a quantidade de bits for impar
-// O operador unário ^ realiza o XOR entre todos os bits do vetor
-assign parity_error = (received_parity != ^data_out[7:0]);  // comparar com os 8 bits recuperados
-
+// Frame format (compatível com Lushay): START(0) + 8 DATA bits + STOP(1) = 10 bits total
+// Sem bit de paridade
 endmodule

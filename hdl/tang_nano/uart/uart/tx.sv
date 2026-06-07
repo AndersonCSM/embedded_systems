@@ -1,13 +1,13 @@
 module tx (
-    input logic clk, // clk do dispositivo
-    input logic rst, // reset do circuito
-    input logic en_tx, // transmissao habilitada
-    input logic tick_rate, // tick_rate da transmissão
+    input wire clk, // clk do dispositivo
+    input wire rst, // reset do circuito
+    input wire en_tx, // transmissao habilitada
+    input wire tick_rate, // tick_rate da transmissão
 
-    input logic [7:0] data_in, // entrada dos dados a serem transmitidos
+    input wire [7:0] data_in, // entrada dos dados a serem transmitidos
 
-    output logic data_out, // saida dos dados transmitidos interface rs232
-    output logic done_tx // concluiu transmissao
+    output reg data_out, // saida dos dados transmitidos interface rs232
+    output wire done_tx // concluiu transmissao
 );
 
 
@@ -16,11 +16,9 @@ module tx (
 parameter IDLE = 2'b00, START = 2'b01, DATA = 2'b10, STOP = 2'b11;  // Quatro estados para a transmissão
 reg [1:0] estado, proximo;            // registrador para estado (2 bits)
 
-reg [3:0] bit_counter;                // até 11 bits, usado para controlar qual é o bit de data que está sendo enviado no momento pelo wire
+reg [3:0] bit_counter;                // até 8 bits de dados
 reg [3:0] tick_counter;               // contador de ticks para sincronização
 reg [7:0] tx_data;                    // registra os dados de entrada
-
-wire tx_parity;                        // bit de paridade
 
 // 2. Definindo a FSM - cada bloco possui uma FSM própria, logo aqui é a FSM TX
 always @ (posedge clk or negedge rst)			//Boa prática considera o reset
@@ -90,8 +88,8 @@ always @ (posedge tick_rate) begin
     end
 end
 
-// 6. se tudo ok, tx_data encaminha os bits para data_out + bit_paridade
-// interface rs232 para transmissão de dados em linha em um único fio
+// 6. Transmissão dos dados: START → 8 bits DATA → STOP (sem parity)
+// Interface RS232 para transmissão em linha única
 always@ (posedge clk or negedge rst) begin
     if (! rst)                          // se reset, fio fica em 1 (idle)
         data_out <= 1'b1;
@@ -99,7 +97,7 @@ always@ (posedge clk or negedge rst) begin
         data_out <= 1'b0;               // start bit
     end
     else if(estado == DATA && tick_counter == 4'b1111) begin
-        case(bit_counter)               // atribui os bits de dados a data_out
+        case(bit_counter)               // envia os 8 bits de dados
             4'd0: data_out <= tx_data[0];
             4'd1: data_out <= tx_data[1];
             4'd2: data_out <= tx_data[2];
@@ -111,24 +109,16 @@ always@ (posedge clk or negedge rst) begin
             default: data_out <= 1'b1;
         endcase
     end
-    else if(estado == STOP && tick_counter == 4'b0111) begin
-        data_out <= tx_parity;          // bit de paridade
-    end
     else if(estado == STOP && tick_counter == 4'b1111) begin
-        data_out <= 1'b1;               // stop bit
+        data_out <= 1'b1;               // stop bit (sem parity)
     end
     else if(estado == IDLE) begin
         data_out <= 1'b1;               // em idle o fio fica transmitindo em 1
     end
 end
 
-// 7. Cálculo do BIT PARIDADE PAR
-// Se a contagem original de bits '1' na mensagem for ímpar, o bit de paridade é definido como 1 para tornar o total par;
-// se a contagem original for par (ou nula), o bit de paridade é definido como 0.
-// XOR : a saída é 1 se a quantidade for 1 -> O ^ 1 = 1  |  1 ^1 = 0 
-// Se encadear operações XOR ele só retorna 1 se a quantidade de bits for impar
-// O operador unário ^ realiza o XOR entre todos os bits do vetor
-assign tx_parity = ^tx_data;  // XOR de todos os bits = 1 se número ímpar de 1s
+// 7. Removido: Cálculo de paridade (compatibilidade com Lushay)
+// Frame format: START(0) + 8 DATA bits + STOP(1) = 10 bits total
 
 // 8. Sinal de conclusão de transmissão
 assign done_tx = (estado == IDLE && proximo == IDLE && bit_counter == 4'b0000);

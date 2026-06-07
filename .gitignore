@@ -18,7 +18,7 @@ incremental_db/
 
 # Simulation artifacts
 simulation/
-gabarito
+gabarito/
 *.vvp
 *.vcd
 *.lxt

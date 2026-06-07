@@ -2,7 +2,7 @@ module tx (
     input logic clk, // clk do dispositivo
     input logic rst, // reset do circuito
     input logic en_tx, // transmissao habilitada
-    input logic baud_rate, // baud_date da transmissão
+    input logic tick_rate, // tick_rate da transmissão
 
     input logic [7:0] data_in, // entrada dos dados a serem transmitidos
 
@@ -11,63 +11,108 @@ module tx (
 );
 
 
-// 1. definir fios
-//Variabels used for state machine...
-parameter  IDLE = 1'b0, SEND = 1'b1; 	//We haev 2 states for the State Machine state 0 and 1 (READ adn IDLE)
-reg [1:0] estado, proximo;			//Create some registers for the states
-reg  read_enable = 1'b0;		//Variable that will enable or NOT the data in read
+// 1. definir parametros
+// variaveis da FSM
+parameter IDLE = 2'b00, START = 2'b01, DATA = 2'b10, STOP = 2'b11;  // 4 estados para a transmissão
+reg [1:0] estado, proximo;              // registradores para estado (2 bits)
 
+reg [3:0] bit_count;                    // contador de bits (0-10: start + 8 dados + paridade + stop)
+reg [3:0] tick_counter;                 // contador de ticks para sincronização
+reg [7:0] tx_data;                      // registra os dados de entrada
+reg tx_parity;                          // bit de paridade
 
-reg  start_bit = 1'b1;			//Variable used to notify when the start bit was detected (first falling edge of RX)
-reg  RxDone = 1'b0;			//Variable used to notify when the data read process is done
+// 2. FSM - Atualização do estado a cada posedge clk
+always @ (posedge clk or negedge rst) begin
+    if (!rst)
+        estado <= IDLE;                 // Se reset ativo, vai para idle
+    else
+        estado <= proximo;              // Senão, vai para o próximo estado
+end
 
-reg [4:0]Bit = 5'b00000;		//Variable used for the bit by bit read loop (in this case 8 bits so 8 loops)
-reg [3:0] counter = 4'b0000;		//Counter variable used to count the tick pulses up to 16
-reg [7:0] Read_data= 8'b00000000;	//Register where we store the Rx input bits before assigning it to the RxData output
-reg [7:0] RxData;			//We register the output as well so we store the value
+// 3. Lógica combinatorial - Decisão do próximo estado
+always @ (estado or en_tx or bit_count or tick_counter) begin
+    case(estado)
+        IDLE:
+            if(en_tx)
+                proximo = START;        // Habilita transmissão
+            else
+                proximo = IDLE;
+        START:
+            if(tick_counter == 4'b1111)
+                proximo = DATA;         // Após start bit, vai para dados
+            else
+                proximo = START;
+        DATA:
+            if(bit_count == 4'b1000 && tick_counter == 4'b1111)  // 8 bits transmitidos
+                proximo = STOP;         // Vai para paridade + stop
+            else
+                proximo = DATA;
+        STOP:
+            if(tick_counter == 4'b1111)
+                proximo = IDLE;         // Transmissão completa
+            else
+                proximo = STOP;
+        default:
+            proximo = IDLE;
+    endcase
+end
 
-reg [7:0] data_in; // registrado para dados
-reg [1:0] State, proximo; // registrado para a FSM
-reg [12:0] contador_baud; // registrador para contar o baud_rate (mc)
-reg bit_paridade; // bit de paridade // acho que um fio da conta, mas por questão de raciocinio deixa como reg
-reg [3:0] controle_bit // até 16 bits, usado para controlar qual é o bit de data que está sendo enviado no momento pelo wire
-
-// 2. Definindo a FSM - cada bloco possui uma FSM própria, logo aqui é a FSM TX
-always @ (posedge clk or negedge rst)			//Boa prática considera o reset
-    begin
-        if (!rst)	
-            estado <= IDLE;				// Se botão de reset ativo, vai para idle
-        else 		
-            estado <= SEND;				// Senão, vai para o próximo estado
+// 4. Registra dados de entrada quando inicia transmissão
+always @ (posedge clk or negedge rst) begin
+    if (!rst) begin
+        tx_data <= 8'b00000000;
     end
+    else if(estado == IDLE && en_tx) begin
+        tx_data <= data_in;             // Captura os dados quando habilita transmissão
+    end
+end
 
-// 3. garantir condições de sincroniza
-
-// 4. se tudo ok, data_in encaminha os bits para data_out + bit_paridade
-/* interface rs232 para transmissão de dados em linha em um único fio*/
-always@ (posedge clk or negedge rst) begin
-    if (! rst) // se clicou no reset volta para idle o fio fica em 1
-        data_out <= 1'b1;
-    else if(estado)begin
-        if(bit_flag) begin
-            case(bit_cnt)
-                4'd0:data_out <= 1'b0; // indica que se vai iniciar a transmissão com a queda
-                4'd1:data_out <= r_data[0];
-                4'd2:data_out <= r_data[1];
-                4'd3:data_out <= r_data[2];
-                4'd4:data_out <= r_data[3];
-                4'd5:data_out <= r_data[4];
-                4'd6:data_out <= r_data[5];
-                4'd7:data_out <= r_data[6];
-                4'd8:data_out <= r_data[7];
-                4'd9:data_out <= bit_paridade;
-                4'd10:data_out <= 1'b1;
-                default:data_out <= 1'b1; // em idle o fio fica transmitindo em 1
-            endcase
+// 5. Sincronização com tick_rate
+always @ (posedge tick_rate) begin
+    if (estado != IDLE) begin
+        tick_counter <= tick_counter + 1;
+        
+        if (tick_counter == 4'b1111) begin
+            bit_count <= bit_count + 1;
+            tick_counter <= 4'b0000;
         end
     end
- else
-    data_out <= 1'b1;
+    else begin
+        tick_counter <= 4'b0000;
+        bit_count <= 4'b0000;
+    end
+end
+
+// 6. se tudo ok, tx_data encaminha os bits para data_out + bit_paridade
+// interface rs232 para transmissão de dados em linha em um único fio
+always@ (posedge clk or negedge rst) begin
+    if (! rst)                          // se reset, fio fica em 1 (idle)
+        data_out <= 1'b1;
+    else if(estado == START && tick_counter == 4'b1111) begin
+        data_out <= 1'b0;               // start bit
+    end
+    else if(estado == DATA && tick_counter == 4'b1111) begin
+        case(bit_count)                 // atribui os bits de dados a data_out
+            4'd0: data_out <= tx_data[0];
+            4'd1: data_out <= tx_data[1];
+            4'd2: data_out <= tx_data[2];
+            4'd3: data_out <= tx_data[3];
+            4'd4: data_out <= tx_data[4];
+            4'd5: data_out <= tx_data[5];
+            4'd6: data_out <= tx_data[6];
+            4'd7: data_out <= tx_data[7];
+            default: data_out <= 1'b1;
+        endcase
+    end
+    else if(estado == STOP && tick_counter == 4'b0111) begin
+        data_out <= tx_parity;          // bit de paridade
+    end
+    else if(estado == STOP && tick_counter == 4'b1111) begin
+        data_out <= 1'b1;               // stop bit
+    end
+    else if(estado == IDLE) begin
+        data_out <= 1'b1;               // em idle o fio fica transmitindo em 1
+    end
 end
 
 // BIT PARIDADE PAR
@@ -76,6 +121,9 @@ end
 // XOR : a saída é 1 se a quantidade for 1 -> O ^ 1 = 1  |  1 ^1 = 0 
 // Se encadear operações XOR ele só retorna 1 se a quantidade de bits for impar
 // O operador unário ^ realiza o XOR entre todos os bits do vetor
-assign bit_paridade = ^data_out;  // XOR de todos os bits = 1 se número ímpar de 1s
+assign tx_parity = ^tx_data;            // XOR de todos os bits = 1 se número ímpar de 1s
+
+// 7. Sinal de conclusão de transmissão
+assign done_tx = (estado == IDLE && proximo == IDLE && bit_count == 4'b0000);
 
 endmodule
