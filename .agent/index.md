@@ -1,0 +1,907 @@
+# Índice de Arquivos
+
+Este índice mapeia todos os arquivos do repositório para referência.
+
+## Arquivos
+- ./.agent/index.md
+- ./.agent/skills/skills.md
+- ./.antigravity/.index.md
+- ./.gitattributes
+- ./.gitignore
+- ./.vscode/settings.json
+- ./LICENSE
+- ./README.md
+- ./course/README.md
+- ./course/unidade1/Avaliacao/QuadroAlerta.qpf
+- ./course/unidade1/Avaliacao/QuadroAlerta.qsf
+- ./course/unidade1/Avaliacao/QuadroAlerta.qws
+- ./course/unidade1/Avaliacao/QuadroAlerta.sv
+- ./course/unidade1/Avaliacao/QuadroAlerta.sv.bak
+- ./course/unidade1/Avaliacao/comparator.sv
+- ./course/unidade1/Avaliacao/controller.sv
+- ./course/unidade1/Avaliacao/controller.sv.bak
+- ./course/unidade1/Avaliacao/datapath.sv
+- ./course/unidade1/Avaliacao/db/.cmp.kpt
+- ./course/unidade1/Avaliacao/db/InterfaceBarramentoSimples.db_info
+- ./course/unidade1/Avaliacao/db/InterfaceBarramentoSimples.sld_design_entry.sci
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(0).cnf.cdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(0).cnf.hdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(1).cnf.cdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(1).cnf.hdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(2).cnf.cdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(2).cnf.hdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(3).cnf.cdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(3).cnf.hdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(4).cnf.cdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(4).cnf.hdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(5).cnf.cdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.(5).cnf.hdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.asm.qmsg
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.asm.rdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.asm_labs.ddb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.cbx.xml
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.cmp.cdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.cmp.hdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.cmp.idb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.cmp.logdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.cmp.rdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.cmp0.ddb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.db_info
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.eda.qmsg
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.fit.qmsg
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.hier_info
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.hif
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.lpc.html
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.lpc.rdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.lpc.txt
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.map.cdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.map.hdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.map.logdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.map.qmsg
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.map.rdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.pplq.rdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.pre_map.hdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.root_partition.map.reg_db.cdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.routing.rdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.rtlv.hdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.rtlv_sg.cdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.rtlv_sg_swap.cdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.sld_design_entry.sci
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.sld_design_entry_dsc.sci
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.smart_action.txt
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.smp_dump.txt
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.sta.qmsg
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.sta.rdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.sta_cmp.5_slow.tdb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.tis_db_list.ddb
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.tmw_info
+- ./course/unidade1/Avaliacao/db/QuadroAlerta.vpr.ammdb
+- ./course/unidade1/Avaliacao/db/prev_cmp_QuadroAlerta.qmsg
+- ./course/unidade1/Avaliacao/deboucing.sv
+- ./course/unidade1/Avaliacao/div_clock.sv
+- ./course/unidade1/Avaliacao/incremental_db/README
+- ./course/unidade1/Avaliacao/incremental_db/compiled_partitions/QuadroAlerta.db_info
+- ./course/unidade1/Avaliacao/incremental_db/compiled_partitions/QuadroAlerta.root_partition.map.kpt
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.asm.rpt
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.cdf
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.done
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.eda.rpt
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.fit.rpt
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.fit.smsg
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.fit.summary
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.flow.rpt
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.jdi
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.map.rpt
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.map.smsg
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.map.summary
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.pin
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.pof
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.sld
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.sta.rpt
+- ./course/unidade1/Avaliacao/output_files/QuadroAlerta.sta.summary
+- ./course/unidade1/Avaliacao/simulation/questa/QuadroAlerta.sft
+- ./course/unidade1/Avaliacao/simulation/questa/QuadroAlerta.vo
+- ./course/unidade1/blink/blink.qpf
+- ./course/unidade1/blink/blink.qsf
+- ./course/unidade1/blink/blink.qws
+- ./course/unidade1/blink/blink.sv
+- ./course/unidade1/blink/blink.sv.bak
+- ./course/unidade1/blink/db/.cmp.kpt
+- ./course/unidade1/blink/db/blink.(0).cnf.cdb
+- ./course/unidade1/blink/db/blink.(0).cnf.hdb
+- ./course/unidade1/blink/db/blink.(1).cnf.cdb
+- ./course/unidade1/blink/db/blink.(1).cnf.hdb
+- ./course/unidade1/blink/db/blink.ace_cmp.cdb
+- ./course/unidade1/blink/db/blink.ace_cmp.hdb
+- ./course/unidade1/blink/db/blink.asm.qmsg
+- ./course/unidade1/blink/db/blink.asm.rdb
+- ./course/unidade1/blink/db/blink.asm_labs.ddb
+- ./course/unidade1/blink/db/blink.cbx.xml
+- ./course/unidade1/blink/db/blink.cmp.cdb
+- ./course/unidade1/blink/db/blink.cmp.hdb
+- ./course/unidade1/blink/db/blink.cmp.idb
+- ./course/unidade1/blink/db/blink.cmp.logdb
+- ./course/unidade1/blink/db/blink.cmp.rdb
+- ./course/unidade1/blink/db/blink.cmp0.ddb
+- ./course/unidade1/blink/db/blink.db_info
+- ./course/unidade1/blink/db/blink.eco.cdb
+- ./course/unidade1/blink/db/blink.eda.qmsg
+- ./course/unidade1/blink/db/blink.fit.qmsg
+- ./course/unidade1/blink/db/blink.hier_info
+- ./course/unidade1/blink/db/blink.hif
+- ./course/unidade1/blink/db/blink.lpc.html
+- ./course/unidade1/blink/db/blink.lpc.rdb
+- ./course/unidade1/blink/db/blink.lpc.txt
+- ./course/unidade1/blink/db/blink.map.cdb
+- ./course/unidade1/blink/db/blink.map.hdb
+- ./course/unidade1/blink/db/blink.map.logdb
+- ./course/unidade1/blink/db/blink.map.qmsg
+- ./course/unidade1/blink/db/blink.map.rdb
+- ./course/unidade1/blink/db/blink.pplq.rdb
+- ./course/unidade1/blink/db/blink.pre_map.hdb
+- ./course/unidade1/blink/db/blink.root_partition.map.reg_db.cdb
+- ./course/unidade1/blink/db/blink.routing.rdb
+- ./course/unidade1/blink/db/blink.rtlv.hdb
+- ./course/unidade1/blink/db/blink.rtlv_sg.cdb
+- ./course/unidade1/blink/db/blink.rtlv_sg_swap.cdb
+- ./course/unidade1/blink/db/blink.sld_design_entry.sci
+- ./course/unidade1/blink/db/blink.sld_design_entry_dsc.sci
+- ./course/unidade1/blink/db/blink.smart_action.txt
+- ./course/unidade1/blink/db/blink.sta.qmsg
+- ./course/unidade1/blink/db/blink.sta.rdb
+- ./course/unidade1/blink/db/blink.sta_cmp.5_slow.tdb
+- ./course/unidade1/blink/db/blink.tis_db_list.ddb
+- ./course/unidade1/blink/db/blink.tmw_info
+- ./course/unidade1/blink/db/blink.vpr.ammdb
+- ./course/unidade1/blink/db/prev_cmp_blink.qmsg
+- ./course/unidade1/blink/div_clock.sv
+- ./course/unidade1/blink/div_clock.sv.bak
+- ./course/unidade1/blink/incremental_db/README
+- ./course/unidade1/blink/incremental_db/compiled_partitions/blink.db_info
+- ./course/unidade1/blink/incremental_db/compiled_partitions/blink.root_partition.map.kpt
+- ./course/unidade1/blink/output_files/blink.asm.rpt
+- ./course/unidade1/blink/output_files/blink.cdf
+- ./course/unidade1/blink/output_files/blink.done
+- ./course/unidade1/blink/output_files/blink.eda.rpt
+- ./course/unidade1/blink/output_files/blink.fit.rpt
+- ./course/unidade1/blink/output_files/blink.fit.smsg
+- ./course/unidade1/blink/output_files/blink.fit.summary
+- ./course/unidade1/blink/output_files/blink.flow.rpt
+- ./course/unidade1/blink/output_files/blink.jdi
+- ./course/unidade1/blink/output_files/blink.jditmp
+- ./course/unidade1/blink/output_files/blink.map.rpt
+- ./course/unidade1/blink/output_files/blink.map.summary
+- ./course/unidade1/blink/output_files/blink.pin
+- ./course/unidade1/blink/output_files/blink.pof
+- ./course/unidade1/blink/output_files/blink.sld
+- ./course/unidade1/blink/output_files/blink.sta.rpt
+- ./course/unidade1/blink/output_files/blink.sta.summary
+- ./course/unidade1/blink/simulation/questa/blink.sft
+- ./course/unidade1/blink/simulation/questa/blink.vo
+- ./course/unidade1/blocos VHDL/comparator.sv
+- ./course/unidade1/blocos VHDL/deboucing.sv
+- ./course/unidade1/blocos VHDL/dff_d.sv
+- ./course/unidade1/blocos VHDL/div_clock.sv
+- ./course/unidade1/interface_barramento/InterfaceBarramentoSimples.qpf
+- ./course/unidade1/interface_barramento/InterfaceBarramentoSimples.qsf
+- ./course/unidade1/interface_barramento/InterfaceBarramentoSimples.qws
+- ./course/unidade1/interface_barramento/InterfaceBarramentoSimples.sv
+- ./course/unidade1/interface_barramento/comparator.sv
+- ./course/unidade1/interface_barramento/controller.sv
+- ./course/unidade1/interface_barramento/controller.sv.bak
+- ./course/unidade1/interface_barramento/datapath.sv
+- ./course/unidade1/interface_barramento/db/QuadroAlerta.db_info
+- ./course/unidade1/interface_barramento/db/QuadroAlerta.sld_design_entry.sci
+- ./course/unidade1/interface_barramento/div_clock.sv
+- ./course/unidade1/maquina de refrigerante/projeto.rar
+- ./course/unidade1/maquina de refrigerante/projeto_v4/comparator.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4/controller.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4/controller.sv.bak
+- ./course/unidade1/maquina de refrigerante/projeto_v4/datapath.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/.cmp.kpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/prev_cmp_projeto.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(0).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(0).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(1).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(1).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(2).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(2).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(3).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(3).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(4).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(4).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(5).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(5).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(6).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(6).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(7).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.(7).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.ae.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.asm.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.asm.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.asm_labs.ddb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.cbx.xml
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.cmp.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.cmp.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.cmp.idb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.cmp.logdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.cmp.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.cmp0.ddb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.db_info
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.eda.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.fit.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.hier_info
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.hif
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.lpc.html
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.lpc.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.lpc.txt
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.map.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.map.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.map.logdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.map.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.map.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.pplq.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.pre_map.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.root_partition.map.reg_db.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.routing.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.rtlv.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.rtlv_sg.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.rtlv_sg_swap.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.sld_design_entry.sci
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.sld_design_entry_dsc.sci
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.smart_action.txt
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.smp_dump.txt
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.sta.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.sta.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.sta_cmp.5_slow.tdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.tis_db_list.ddb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.tmw_info
+- ./course/unidade1/maquina de refrigerante/projeto_v4/db/projeto.vpr.ammdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/deboucing.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4/dff_d.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4/div_clock.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4/incremental_db/README
+- ./course/unidade1/maquina de refrigerante/projeto_v4/incremental_db/compiled_partitions/projeto.db_info
+- ./course/unidade1/maquina de refrigerante/projeto_v4/incremental_db/compiled_partitions/projeto.root_partition.map.kpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4/maquina_refrigerante.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.asm.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.cdf
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.done
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.eda.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.fit.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.fit.smsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.fit.summary
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.flow.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.jdi
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.map.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.map.summary
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.pin
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.pof
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.sld
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.sta.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4/output_files/projeto.sta.summary
+- ./course/unidade1/maquina de refrigerante/projeto_v4/p3.cr.mti
+- ./course/unidade1/maquina de refrigerante/projeto_v4/p3.mpf
+- ./course/unidade1/maquina de refrigerante/projeto_v4/projeto.cr.mti
+- ./course/unidade1/maquina de refrigerante/projeto_v4/projeto.mpf
+- ./course/unidade1/maquina de refrigerante/projeto_v4/projeto.qpf
+- ./course/unidade1/maquina de refrigerante/projeto_v4/projeto.qsf
+- ./course/unidade1/maquina de refrigerante/projeto_v4/projeto.qws
+- ./course/unidade1/maquina de refrigerante/projeto_v4/projeto.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4/projeto.sv.bak
+- ./course/unidade1/maquina de refrigerante/projeto_v4/simulation/questa/projeto.sft
+- ./course/unidade1/maquina de refrigerante/projeto_v4/simulation/questa/projeto.vo
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_info
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_lib.qdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_lib1_1.qdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_lib1_1.qpg
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_lib1_1.qtl
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_lib1_12.qdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_lib1_12.qpg
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_lib1_12.qtl
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_lib1_13.qdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_lib1_13.qpg
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_lib1_13.qtl
+- ./course/unidade1/maquina de refrigerante/projeto_v4/work/_vmake
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final.rar
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/comparator.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/controller.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/controller.sv.bak
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/datapath.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/.cmp.kpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/prev_cmp_projeto.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(0).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(0).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(1).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(1).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(2).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(2).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(3).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(3).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(4).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(4).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(5).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(5).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(6).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(6).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(7).cnf.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.(7).cnf.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.ae.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.asm.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.asm.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.asm_labs.ddb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.cbx.xml
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.cmp.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.cmp.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.cmp.idb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.cmp.logdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.cmp.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.cmp0.ddb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.db_info
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.eda.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.fit.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.hier_info
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.hif
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.lpc.html
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.lpc.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.lpc.txt
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.map.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.map.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.map.logdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.map.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.map.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.pplq.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.pre_map.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.root_partition.map.reg_db.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.routing.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.rtlv.hdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.rtlv_sg.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.rtlv_sg_swap.cdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.sld_design_entry.sci
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.sld_design_entry_dsc.sci
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.smart_action.txt
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.smp_dump.txt
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.sta.qmsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.sta.rdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.sta_cmp.5_slow.tdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.tis_db_list.ddb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.tmw_info
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/db/projeto.vpr.ammdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/deboucing.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/dff_d.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/div_clock.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/incremental_db/README
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/incremental_db/compiled_partitions/projeto.db_info
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/incremental_db/compiled_partitions/projeto.root_partition.map.kpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/maquina_refrigerante.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.asm.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.cdf
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.done
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.eda.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.fit.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.fit.smsg
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.fit.summary
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.flow.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.jdi
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.map.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.map.summary
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.pin
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.pof
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.sld
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.sta.rpt
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/output_files/projeto.sta.summary
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/p3.cr.mti
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/p3.mpf
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/projeto.cr.mti
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/projeto.mpf
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/projeto.qpf
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/projeto.qsf
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/projeto.qws
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/projeto.sv
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/projeto.sv.bak
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/simulation/questa/projeto.sft
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/simulation/questa/projeto.vo
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_info
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_lib.qdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_lib1_1.qdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_lib1_1.qpg
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_lib1_1.qtl
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_lib1_12.qdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_lib1_12.qpg
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_lib1_12.qtl
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_lib1_13.qdb
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_lib1_13.qpg
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_lib1_13.qtl
+- ./course/unidade1/maquina de refrigerante/projeto_v4_versao2_final/work/_vmake
+- ./course/unidade1/max2-board/board_code.txt
+- ./course/unidade1/max2-board/datapin.png
+- ./course/unidade1/max2-board/max2_mii5v1.pdf
+- ./course/unidade1/max2-board/usb-blaster-backup/license.txt
+- ./course/unidade1/max2-board/usb-blaster-backup/usbblstr.cat
+- ./course/unidade1/max2-board/usb-blaster-backup/usbblstr.inf
+- ./course/unidade1/max2-board/usb-blaster-backup/x32/usbblstr.sys
+- ./course/unidade1/max2-board/usb-blaster-backup/x32/usbblstr32.dll
+- ./course/unidade1/max2-board/usb-blaster-backup/x32/usbblstrlang.dll
+- ./course/unidade1/max2-board/usb-blaster-backup/x32/usbblstrui.dll
+- ./course/unidade1/max2-board/usb-blaster-backup/x64/usbblstr.sys
+- ./course/unidade1/max2-board/usb-blaster-backup/x64/usbblstr64.dll
+- ./course/unidade1/max2-board/usb-blaster-backup/x64/usbblstrlang.dll
+- ./course/unidade1/max2-board/usb-blaster-backup/x64/usbblstrui.dll
+- ./course/unidade1/max2-board/usb-blaster.rar
+- ./course/unidade1/max2-board/usb-blaster/license.txt
+- ./course/unidade1/max2-board/usb-blaster/usbblstr.cat
+- ./course/unidade1/max2-board/usb-blaster/usbblstr.inf
+- ./course/unidade1/max2-board/usb-blaster/x32/usbblstr.sys
+- ./course/unidade1/max2-board/usb-blaster/x32/usbblstr32.dll
+- ./course/unidade1/max2-board/usb-blaster/x32/usbblstrlang.dll
+- ./course/unidade1/max2-board/usb-blaster/x32/usbblstrui.dll
+- ./course/unidade1/max2-board/usb-blaster/x64/usbblstr.sys
+- ./course/unidade1/max2-board/usb-blaster/x64/usbblstr64.dll
+- ./course/unidade1/max2-board/usb-blaster/x64/usbblstrlang.dll
+- ./course/unidade1/max2-board/usb-blaster/x64/usbblstrui.dll
+- ./course/unidade2/Avaliacao/arduinoIDE/prova123/prova123.ino
+- ./course/unidade2/Avaliacao/arduinoIDE/prova4/prova4.ino
+- ./course/unidade2/Avaliacao/c/Makefile
+- ./course/unidade2/Avaliacao/c/main123.c
+- ./course/unidade2/Avaliacao/c/main4.c
+- ./course/unidade2/Avaliacao/thinkercad/links dos projetos.txt
+- ./course/unidade2/Avaliacao/thinkercad/prova123/prova123.ino
+- ./course/unidade2/Avaliacao/thinkercad/prova4/prova4.ino
+- ./course/unidade2/lecture-2_2/lecture-2_2.ino
+- ./course/unidade2/lecture-2_3/lecture-2_3.ino
+- ./docs/FIRST_SETUP.md
+- ./docs/INDEX.md
+- ./docs/scripts/README.md
+- ./embarcatech/Tarefa03/Captura de tela 2024-12-18 234846.png
+- ./embarcatech/Tarefa03/algoritmo.docx
+- ./embarcatech/Tarefa03/codigo.c
+- ./embarcatech/Tarefa03/codigo2.c
+- ./embarcatech/Tarefa03/codigo3.c
+- ./embarcatech/Tarefa03/project.zip
+- ./embarcatech/Tarefa_03/Proposta_tarefa_3.pdf
+- ./embarcatech/Tarefa_03/README.MD
+- ./embarcatech/Tarefa_03/SISTEMA DE SINALIZACAO EMBARCATECH.zip
+- ./embedded/keystudio/materiais/bibliotecas/DHT.zip
+- ./embedded/keystudio/materiais/bibliotecas/LCD_128X32.zip
+- ./embedded/keystudio/materiais/bibliotecas/MFRC522_I2C.zip
+- ./embedded/keystudio/materiais/bibliotecas/Matrix.zip
+- ./embedded/keystudio/materiais/bibliotecas/Servo.zip
+- ./embedded/keystudio/materiais/bibliotecas/TM1650.zip
+- ./embedded/keystudio/materiais/bibliotecas/Wire.zip
+- ./embedded/keystudio/materiais/templates/1. Preparation/1. Introduction and List of the Kit.docx
+- ./embedded/keystudio/materiais/templates/1. Preparation/2. Raspberry Pi Pico.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/Download Arduino.txt
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/How to download Arduino, Drivers and Libraries.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 01：Hello World/Project 01 Hello World--.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 01：Hello World/Project_01_Hello_World/Project_01_Hello_World.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 02：Onboard LED flashing/Project 02：Onboard LED Flashing.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 02：Onboard LED flashing/Project_02_Onboard_LED_Flashing/Project_02_Onboard_LED_Flashing.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 03：External LED flashing/Project 03：External LED flashing.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 03：External LED flashing/Project_03_External_LED_Flashing/Project_03_External_LED_Flashing.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 04：Breathing Led/Project 04：Breathing Led.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 04：Breathing Led/Project_04_Breathing_Led/Project_04_Breathing_Led.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 05：Traffic Lights/Project 05：Traffic Lights.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 05：Traffic Lights/Project_05_Traffic_Lights/Project_05_Traffic_Lights.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 06：RGB LED/Project 06：RGB LED.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 06：RGB LED/Project_06_RGB_LED/Project_06_RGB_LED.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 07：Flowing Water Light/Project 07：Flowing Water Light.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 07：Flowing Water Light/Project_07_Flowing_Water_Light/Project_07_Flowing_Water_Light.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 08：1-Digit Digital Tube/Project 08：1-Digit Digital Tube.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 08：1-Digit Digital Tube/Project_08_One_Digit_Digital_Tube/Project_08_One_Digit_Digital_Tube.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 09：4-Digit Digital Tube/Project 09：4-digit Digital Tube.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 09：4-Digit Digital Tube/Project_09_Four_Digit_Digital_Tube/Project_09_Four_Digit_Digital_Tube.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 10：8×8 Dot-matrix Display/Project 10：8×8 Dot-matrix Display.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 10：8×8 Dot-matrix Display/Project_10_8_8_Dot_Matrix_Display/Project_10_8_8_Dot_Matrix_Display.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 11：74HC595N Control 8 LEDs/Project 11：74HC595N Control 8 LEDs.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 11：74HC595N Control 8 LEDs/Project_11_74HC595N_Control_8_LEDs/Project_11_74HC595N_Control_8_LEDs.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 12：Active Buzzer/Project 12：Active Buzzer.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 12：Active Buzzer/Project_12_Active_Buzzer/Project_12_Active_Buzzer.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 13：Passive Buzzer/Project 13：Passive Buzzer.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 13：Passive Buzzer/Project_13_Passive_Buzzer/Project_13_Passive_Buzzer.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 14：Mini Table Lamp/Project 14：Mini Table Lamp.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 14：Mini Table Lamp/Project_14_Mini_Table_Lamp/Project_14_Mini_Table_Lamp.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 15：Tilt And LED/Project 15：Tilt And LED.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 15：Tilt And LED/Project_15_Tilt_And_LED/Project_15_Tilt_And_LED.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 16：Burglar Alarm/Project 16：Burglar Alarm.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 16：Burglar Alarm/Project_16_Burglar_Alarm/Project_16_Burglar_Alarm.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 17： I2C 128×32 LCD/Project 17： I2C 128×32 LCD.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 17： I2C 128×32 LCD/Project_17_I2C_128_32_LCD/Project_17_I2C_128_32_LCD.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 18：Small Fan/Project 18：Small Fan.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 18：Small Fan/Project_18_Small_Fan/Project_18_Small_Fan.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 19：Servo Sweep/Project 19：Servo Sweep.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 19：Servo Sweep/Project_19_Servo_Sweep/Project_19_Servo_Sweep.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 20：Stepping Motor/Project 20：Stepping Motor.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 20：Stepping Motor/Project_20_Stepping_Motor/Project_20_Stepping_Motor.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 21：Relay/Project 21：Relay.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 21：Relay/Project_21_Relay/Project_21_Relay.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 22：Dimming Light/Project 22：Dimming Light.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 22：Dimming Light/Project_22.1_Read_Potentiometer_Analog_Value/Project_22.1_Read_Potentiometer_Analog_Value.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 22：Dimming Light/Project_22.2_Dimming_Light/Project_22.2_Dimming_Light.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 23：Flame Alarm/Project 23：Flame Alarm.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 23：Flame Alarm/Project_23.1_Read_Analog_Value_Of_Flame_Sensor/Project_23.1_Read_Analog_Value_Of_Flame_Sensor.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 23：Flame Alarm/Project_23.2_Flame_Alarm/Project_23.2_Flame_Alarm.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 24：Night Lamp/Project 24：Night Lamp.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 24：Night Lamp/Project_24.1_Read_Photosensitive_Analog_Value/Project_24.1_Read_Photosensitive_Analog_Value.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 24：Night Lamp/Project_24.2_Night_Lamp/Project_24.2_Night_Lamp.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 25：Human  Induction Lamp/Project 25：Human Induction Lamp.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 25：Human  Induction Lamp/Project_25_Human_Induction_Lamp/Project_25_Human_Induction_Lamp.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 26：Sound Control Fan/Project 26：Sound Control Fan.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 26：Sound Control Fan/Project_26.1_Read_Sound_Sensor_Analog_Value/Project_26.1_Read_Sound_Sensor_Analog_Value.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 26：Sound Control Fan/Project_26.2_Sound_Control_Fan/Project_26.2_Sound_Control_Fan.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 27：Temperature Measurement/Project 27：Temperature Measurement.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 27：Temperature Measurement/Project_27.1_Read_LM35_Temperature_Value/Project_27.1_Read_LM35_Temperature_Value.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 27：Temperature Measurement/Project_27.2_Temperature_Measurement/Project_27.2_Temperature_Measurement.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 28：Rocker control light/Project 28：Rocker control light.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 28：Rocker control light/Project_28.1_Read_Rocker_Value/Project_28.1_Read_Rocker_Value.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 28：Rocker control light/Project_28.2_Rocker_Control_Light/Project_28.2_Rocker_Control_Light.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 29：Temperature Humidity Meter/Project 29：Temperature Humidity Meter.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 29：Temperature Humidity Meter/Project_29.1_Detect_Temperature_Humidity/Project_29.1_Detect_Temperature_Humidity.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 29：Temperature Humidity Meter/Project_29.2_Temperature_Humidity_Meter/Project_29.2_Temperature_Humidity_Meter.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 30：Ultrasonic Ranger/Project 30：Ultrasonic Ranger.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 30：Ultrasonic Ranger/Project_30.1_Ultrasonic_Ranging/Project_30.1_Ultrasonic_Ranging.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 30：Ultrasonic Ranger/Project_30.2_Ultrasonic_Ranger/Project_30.2_Ultrasonic_Ranger.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 31：Temperature Instrument/Project 31：Temperature Instrument.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 31：Temperature Instrument/Project_31.1_Read_the_thermistor_analog_value/Project_31.1_Read_the_thermistor_analog_value.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 31：Temperature Instrument/Project_31.2_Temperature_Instrument/Project_31.2_Temperature_Instrument.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 32：RFID/Project 32：RFID.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 32：RFID/Project_32.1_RFID_Read_UID/Project_32.1_RFID_Read_UID.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 32：RFID/Project_32.2_RFID_Control_Servo/Project_32.2_RFID_Control_Servo.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 33：Keypad Door/Project 33：Keypad Door.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 33：Keypad Door/Project_33.1_4x4_Matrix_Keypad_Display/Keypad.cpp
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 33：Keypad Door/Project_33.1_4x4_Matrix_Keypad_Display/Keypad.h
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 33：Keypad Door/Project_33.1_4x4_Matrix_Keypad_Display/Project_33.1_4x4_Matrix_Keypad_Display.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 33：Keypad Door/Project_33.2_Keypad_Door/Keypad.cpp
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 33：Keypad Door/Project_33.2_Keypad_Door/Keypad.h
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 33：Keypad Door/Project_33.2_Keypad_Door/Project_33.2_Keypad_Door.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 34：IR Control Sound and LED/Project 34：IR Control Sound and LED.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 34：IR Control Sound and LED/Project_34.1_Decoded_IR_Signal/IR.cpp
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 34：IR Control Sound and LED/Project_34.1_Decoded_IR_Signal/IR.h
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 34：IR Control Sound and LED/Project_34.1_Decoded_IR_Signal/Project_34.1_Decoded_IR_Signal.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 34：IR Control Sound and LED/Project_34.2_IR_Control_Sound_And_LED/IR.cpp
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 34：IR Control Sound and LED/Project_34.2_IR_Control_Sound_And_LED/IR.h
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 34：IR Control Sound and LED/Project_34.2_IR_Control_Sound_And_LED/Project_34.2_IR_Control_Sound_And_LED.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/CH340 Driver File-MAC/CH34x_Install_V1.5.pkg
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341PT.DLL
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341S64.SYS
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341S98.SYS
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341SER.INF
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341SER.SYS
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341SER.VXD
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/SETUP.EXE
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/ch341SER.CAT
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/ESP8266 tools  are developed by Arduino IDE/esp8266one-click installation of Arduino board.exe
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/Project 35：WiFi Test.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 35：WiFi Test/Project_35_Wifi_Test/Project_35_Wifi_Test.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 36：WiFi Smart Home/ESP8266_Code/ESP8266_Code.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 36：WiFi Smart Home/Project 36：WiFi Smart Home.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 36：WiFi Smart Home/Project 36：WiFi Smart Home中文.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/c_tutorial/projects/Project 36：WiFi Smart Home/Project_36_WiFi_Smart_Home/Project_36_WiFi_Smart_Home.ino
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/Preparation for Python.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/Python_Software.txt
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 00：main/main.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 01：Hello World/Project 01 Hello World.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 01：Hello World/Project_01_HelloWorld.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 02：Onboard LED flashing/Project 02 Onboard LED flashing.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 02：Onboard LED flashing/Project_02_Onboard_LED_flashing.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 03：External LED flashing/Project 03：External LED flashing.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 03：External LED flashing/Project_03_External_LED_Flashing.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 04：Breathing Led/Project 04 Breathing Led.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 04：Breathing Led/Project_04_Breathing_Led.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 05：Traffic Lights/Project 05：Traffic Lights.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 05：Traffic Lights/Project_05_Traffic_Lights.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 06：RGB LED/Project 06 RGB LED.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 06：RGB LED/Project_06_RGB_LED.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 07：Flowing Water Light/Project 07 Flowing Water Light.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 07：Flowing Water Light/Project_07_Flowing_Water_Light.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 08：1-Digit Digital Tube/Project 08 1-Digit Digital Tube.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 08：1-Digit Digital Tube/Project_08_One_Digit_Digital_Tube.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 09：4-Digit Digital Tube/Project 09：4-Digit Digital Tube.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 09：4-Digit Digital Tube/Project_09_Four_Digit_Digital_Tube.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 09：4-Digit Digital Tube/TM1650.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 10：8×8 Dot-matrix Display/Project 10：8×8 Dot-matrix Display.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 10：8×8 Dot-matrix Display/Project_10_8×8_Dot_Matrix_Display.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 10：8×8 Dot-matrix Display/ht16k33_matrix.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 10：8×8 Dot-matrix Display/matrix_fonts.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 11：74HC595N Control 8 LEDs/Project 11：74HC595N Control 8 LEDs.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 11：74HC595N Control 8 LEDs/Project_11_74HC595N_Controls_8_LEDs.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 11：74HC595N Control 8 LEDs/my74HC595.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 12：Active Buzzer/Project 12：Active Buzzer.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 12：Active Buzzer/Project_12_Active_Buzzer.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 13：Passive Buzzer/Project 13：Passive Buzzer.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 13：Passive Buzzer/Project_13_Passive_Buzzer.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 14：Mini Table Lamp/Project 14  Mini Table Lamp.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 14：Mini Table Lamp/Project_14_Mini_Table_Lamp.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 15：Tilt And LED/Project 15：Tilt And LED.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 15：Tilt And LED/Project_15_Tilt_And_LED.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 16：Burglar Alarm/Project 16：Burglar Alarm.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 16：Burglar Alarm/Project_16_Burglar_Alarm.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 17： I2C 128×32 LCD/Project 17： I2C 128×32 LCD.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 17： I2C 128×32 LCD/Project_17_I2C_128_32_LCD.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 17： I2C 128×32 LCD/lcd128_32.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 17： I2C 128×32 LCD/lcd128_32_fonts.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 18：Small Fan/Project 18：Small Fan.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 18：Small Fan/Project_18_ Small_Fan.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 19：Servo Sweep/Project 19：Servo Sweep.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 19：Servo Sweep/Project_19_Servo_Sweep.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 19：Servo Sweep/myservo.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 20：Stepping Motor/Project 20：Stepping Motor.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 20：Stepping Motor/Project_20_Stepping_Motor.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 21：Relay/Project 21：Relay.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 21：Relay/Project_21_Relay.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 22：Dimming Light/Project 22   Dimming Light.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 22：Dimming Light/Project_22.1_Read_Potentiometer_Analog_Value.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 22：Dimming Light/Project_22.2_Dimming_Light.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 23：Flame Alarm/Project 23：Flame Alarm.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 23：Flame Alarm/Project_23.1_Read_Analog_Value_Of_Flame_Sensor.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 23：Flame Alarm/Project_23.2_Flame_Alarm.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 24：Night Lamp/Project 24：Night Lamp.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 24：Night Lamp/Project_24.1_Read_Photosensitive_Analog_Value.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 24：Night Lamp/Project_24.2_Night_Lamp.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 25：Human  Induction Lamp/Project 25：Human Induction Lamp.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 25：Human  Induction Lamp/Project_25_Human_Induction_Lamp.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 26：Sound Control Fan/Project 26：Sound Control Fan.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 26：Sound Control Fan/Project_26.1_Read_Sound_Sensor_Analog_Value.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 26：Sound Control Fan/Project_26.2_Sound_Control_Fan.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 27：Temperature Measurement/Project 27：Temperature Measurement.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 27：Temperature Measurement/Project_27.1_Read_LM35_Temperature_Value.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 27：Temperature Measurement/Project_27.2_Temperature_Measurement.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 28：Rocker control light/Project 28：Rocker control light.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 28：Rocker control light/Project_28.1_Read_Rocker_Value.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 28：Rocker control light/Project_28.2_Rocker_Control_Light.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 29：Temperature Humidity Meter/Project 29：Temperature and Humidity Meter .docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 29：Temperature Humidity Meter/Project_29.1_Detect_Temperature_Humidity.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 29：Temperature Humidity Meter/Project_29.2_Temperature_Humidity_Meter.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 29：Temperature Humidity Meter/dht11.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 29：Temperature Humidity Meter/lcd128_32.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 29：Temperature Humidity Meter/lcd128_32_fonts.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 30：Ultrasonic Ranger/Project 30：Ultrasonic Ranger.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 30：Ultrasonic Ranger/Project_30.1_Ultrasonic_Ranging.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 30：Ultrasonic Ranger/Project_30.2_Ultrasonic_Ranger.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 31：Temperature Instrument/Project 31：Temperature Instrument.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 31：Temperature Instrument/Project_31.1_Read_the_thermistor_analog_value.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 31：Temperature Instrument/Project_31.2_Temperature_Instrument.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 31：Temperature Instrument/lcd128_32.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 31：Temperature Instrument/lcd128_32_fonts.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 32：RFID/Project 32：RFID.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 32：RFID/Project_32.1_RFID_Read_UID.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 32：RFID/Project_32.2_RFID_Control_Servo.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 32：RFID/mfrc522_config.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 32：RFID/mfrc522_i2c.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 32：RFID/soft_iic.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 33：Keypad Door/Project 33：Keypad Door.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 33：Keypad Door/Project_33.1_4x4_Matrix_Keypad_Display.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 33：Keypad Door/Project_33.2_Keypad_Door.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 33：Keypad Door/keypad.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 33：Keypad Door/myservo.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 34：IR Control Sound and LED/Project 34：IR Control Sound and LED.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 34：IR Control Sound and LED/Project 34：IR Control Sound and LED中文.docx
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 34：IR Control Sound and LED/Project_34.1_Decoded_IR_Signal.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 34：IR Control Sound and LED/Project_34.2_IR_Control_Sound_And_LED.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/projects/Project 34：IR Control Sound and LED/irrecvdata.py
+- ./embedded/keystudio/materiais/templates/2. Windows  System/python_tutorial/rp2-pico-20210902-v1.17.uf2
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/Preparation before class for Python.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/Python_Software.txt
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 00：main/main.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 01：Hello World/Project 01： Hello World.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 01：Hello World/Project_01_HelloWorld.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 02：Onboard LED flashing/Project 02：Onboard LED flashing-.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 02：Onboard LED flashing/Project_02_Onboard_LED_flashing.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 03：External LED flashing/Project 03：External LED flashing.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 03：External LED flashing/Project_03_External_LED_Flashing.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 04：Breathing Led/Project 04：Breathing Led.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 04：Breathing Led/Project_04_Breathing_Led.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 05：Traffic Lights/Project 05：Traffic Lights.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 05：Traffic Lights/Project_05_Traffic_Lights.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 06：RGB LED/Project 06：RGB LED.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 06：RGB LED/Project_06_RGB_LED.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 07：Flowing Water Light/Project 07：Flowing Water Light.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 07：Flowing Water Light/Project_07_Flowing_Water_Light.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 08：1-Digit Digital Tube/Project 08：1-Digit Digital Tube.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 08：1-Digit Digital Tube/Project_08_One_Digit_Digital_Tube.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 09：4-Digit Digital Tube/Project 09：4-digit Digital Tube.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 09：4-Digit Digital Tube/Project_09_Four_Digit_Digital_Tube.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 09：4-Digit Digital Tube/TM1650.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 10：8×8 Dot-matrix Display/Project 10：8×8 Dot-matrix Display.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 10：8×8 Dot-matrix Display/Project_10_8×8_Dot_Matrix_Display.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 10：8×8 Dot-matrix Display/ht16k33_matrix.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 10：8×8 Dot-matrix Display/matrix_fonts.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 11：74HC595N Control 8 LEDs/Project 11：74HC595N Control 8 LEDs.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 11：74HC595N Control 8 LEDs/Project_11_74HC595N_Controls_8_LEDs.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 11：74HC595N Control 8 LEDs/my74HC595.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 12：Active Buzzer/Project 12：Active Buzzer.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 12：Active Buzzer/Project_12_Active_Buzzer.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 13：Passive Buzzer/Project 13：Passive Buzzer.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 13：Passive Buzzer/Project_13_Passive_Buzzer.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 14：Mini Table Lamp/Project 14：Mini Table Lamp.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 14：Mini Table Lamp/Project_14_Mini_Table_Lamp.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 15：Tilt And LED/Project 15：Tilt And LED.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 15：Tilt And LED/Project_15_Tilt_And_LED.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 16：Burglar Alarm/Project 16：Burglar Alarm.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 16：Burglar Alarm/Project_16_Burglar_Alarm.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 17： I2C 128×32 LCD/Project 17：I2C 128×32 LCD.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 17： I2C 128×32 LCD/Project_17_I2C_128_32_LCD.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 17： I2C 128×32 LCD/lcd128_32.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 17： I2C 128×32 LCD/lcd128_32_fonts.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 18：Small Fan/Project 18：Small Fan.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 18：Small Fan/Project_18_ Small_Fan.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 19：Servo Sweep/Project 19：Servo Sweep.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 19：Servo Sweep/Project_19_Servo_Sweep.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 19：Servo Sweep/myservo.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 20：Stepping Motor/Project 20：Stepping Motor.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 20：Stepping Motor/Project_20_Stepping_Motor.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 21：Relay/Project 21：Relay.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 21：Relay/Project_21_Relay.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 22：Dimming Light/Project 22：Dimming Light.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 22：Dimming Light/Project_22.1_Read_Potentiometer_Analog_Value.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 22：Dimming Light/Project_22.2_Dimming_Light.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 23：Flame Alarm/Project 23：Flame Alarm.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 23：Flame Alarm/Project_23.1_Read_Analog_Value_Of_Flame_Sensor.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 23：Flame Alarm/Project_23.2_Flame_Alarm.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 24：Night Lamp/Project 24：Night Lamp.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 24：Night Lamp/Project_24.1_Read_Photosensitive_Analog_Value.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 24：Night Lamp/Project_24.2_Night_Lamp.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 25：Human  Induction Lamp/Project 25：Human Induction Lamp.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 25：Human  Induction Lamp/Project_25_Human_Induction_Lamp.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 26：Sound Control Fan/Project 26：Sound Control Fan.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 26：Sound Control Fan/Project_26.1_Read_Sound_Sensor_Analog_Value.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 26：Sound Control Fan/Project_26.2_Sound_Control_Fan.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 27：Temperature Measurement/Project 27：Temperature Measurement.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 27：Temperature Measurement/Project_27.1_Read_LM35_Temperature_Value.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 27：Temperature Measurement/Project_27.2_Temperature_Measurement.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 28：Rocker control light/Project 28：Rocker control light.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 28：Rocker control light/Project_28.1_Read_Rocker_Value.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 28：Rocker control light/Project_28.2_Rocker_Control_Light.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 29：Temperature Humidity Meter/Project 29：Temperature and Humidity Meter .docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 29：Temperature Humidity Meter/Project_29.1_Detect_Temperature_Humidity.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 29：Temperature Humidity Meter/Project_29.2_Temperature_Humidity_Meter.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 29：Temperature Humidity Meter/dht11.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 29：Temperature Humidity Meter/lcd128_32.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 29：Temperature Humidity Meter/lcd128_32_fonts.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 30：Ultrasonic Ranger/Project 30：Ultrasonic Ranger.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 30：Ultrasonic Ranger/Project_30.1_Ultrasonic_Ranging.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 30：Ultrasonic Ranger/Project_30.2_Ultrasonic_Ranger.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 31：Temperature Instrument/Project 31：Temperature Instrument.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 31：Temperature Instrument/Project_31.1_Read_the_thermistor_analog_value.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 31：Temperature Instrument/Project_31.2_Temperature_Instrument.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 31：Temperature Instrument/lcd128_32.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 31：Temperature Instrument/lcd128_32_fonts.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 32：RFID/Project 32：RFID.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 32：RFID/Project_32.1_RFID_Read_UID.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 32：RFID/Project_32.2_RFID_Control_Servo.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 32：RFID/mfrc522_config.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 32：RFID/mfrc522_i2c.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 32：RFID/soft_iic.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 33：Keypad Door/Project 33：Keypad Door.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 33：Keypad Door/Project_33.1_4x4_Matrix_Keypad_Display.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 33：Keypad Door/Project_33.2_Keypad_Door.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 33：Keypad Door/keypad.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 33：Keypad Door/myservo.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 34：IR Control Sound and LED/Project 34：IR Control Sound and LED.docx
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 34：IR Control Sound and LED/Project_34.1_Decoded_IR_Signal.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 34：IR Control Sound and LED/Project_34.2_IR_Control_Sound_And_LED.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/projects/Project 34：IR Control Sound and LED/irrecvdata.py
+- ./embedded/keystudio/materiais/templates/3. Raspberry Pi System/rp2-pico-20210902-v1.17.uf2
+- ./embedded/keystudio/materiais/templates/4. Android APP/keyes wifi.apk
+- ./embedded/keystudio/praticas/p00_blink/p00_blink.ino
+- ./embedded/keystudio/praticas/p01_onboard_LED_flashing/p01_onboard_LED_flashing.ino
+- ./embedded/keystudio/praticas/p01_onboard_LED_flashing/p01_onboard_LED_flashing.py
+- ./embedded/keystudio/praticas/p02_external_led_flashing/p02_external_led_flashing.docx
+- ./embedded/keystudio/praticas/p02_external_led_flashing/p02_external_led_flashing.ino
+- ./embedded/keystudio/praticas/p02_external_led_flashing/p02_external_led_flashing.py
+- ./embedded/keystudio/praticas/p03_breathing_led_melhorar/p03_breathing_led_melhorar.docx
+- ./embedded/keystudio/praticas/p03_breathing_led_melhorar/p03_breathing_led_melhorar.ino
+- ./embedded/keystudio/praticas/p03_breathing_led_melhorar/p03_breathing_led_melhorar.py
+- ./embedded/keystudio/praticas/p04_digit_digital_tube/TM1650.cpp
+- ./embedded/keystudio/praticas/p04_digit_digital_tube/TM1650.h
+- ./embedded/keystudio/praticas/p04_digit_digital_tube/TM1650.py
+- ./embedded/keystudio/praticas/p04_digit_digital_tube/p04_digit_digital_tube.docx
+- ./embedded/keystudio/praticas/p04_digit_digital_tube/p04_digit_digital_tube.ino
+- ./embedded/keystudio/praticas/p04_digit_digital_tube/p04_digit_digital_tube.py
+- ./embedded/keystudio/praticas/p05_traffic_lights/p05_traffic_lights.docx
+- ./embedded/keystudio/praticas/p05_traffic_lights/p05_traffic_lights.ino
+- ./embedded/keystudio/praticas/p05_traffic_lights/p05_traffic_lights.py
+- ./embedded/keystudio/praticas/p06_rgb_led/p06_rgb_led.docx
+- ./embedded/keystudio/praticas/p06_rgb_led/p06_rgb_led.ino
+- ./embedded/keystudio/praticas/p06_rgb_led/p06_rgb_led.py
+- ./embedded/keystudio/praticas/p07_flowing_water_light/p07_flowing_water_light.docx
+- ./embedded/keystudio/praticas/p07_flowing_water_light/p07_flowing_water_light.ino
+- ./embedded/keystudio/praticas/p07_flowing_water_light/p07_flowing_water_light.py
+- ./embedded/keystudio/praticas/p08_one_digit_digital_tube/p08_one_digit_digital_tube.docx
+- ./embedded/keystudio/praticas/p08_one_digit_digital_tube/p08_one_digit_digital_tube.ino
+- ./embedded/keystudio/praticas/p08_one_digit_digital_tube/p08_one_digit_digital_tube.py
+- ./embedded/keystudio/praticas/p09_8x8_dot_matrix_display/8×8_Dot-matrix-Display.docx
+- ./embedded/keystudio/praticas/p09_8x8_dot_matrix_display/p09_8x8_dot_matrix_display.ino
+- ./embedded/keystudio/praticas/p10_74HC595N_control_8_leds/p10_74HC595N_control_8_leds.docx
+- ./embedded/keystudio/praticas/p10_74HC595N_control_8_leds/p10_74HC595N_control_8_leds.ino
+- ./embedded/keystudio/praticas/p10_74HC595N_control_8_leds/p10_74HC595N_control_8_leds.py
+- ./embedded/keystudio/praticas/p11_active-buzzer/p11_active-buzzer.docx
+- ./embedded/keystudio/praticas/p11_active-buzzer/p11_active-buzzer.ino
+- ./embedded/keystudio/praticas/p11_active-buzzer/p11_active-buzzer.py
+- ./embedded/keystudio/praticas/p12_passive-buzzer/p12_passive-buzzer.docx
+- ./embedded/keystudio/praticas/p12_passive-buzzer/p12_passive-buzzer.ino
+- ./embedded/keystudio/praticas/p12_passive-buzzer/p12_passive-buzzer.py
+- ./embedded/keystudio/praticas/p13_mini-table-lamp/p13_mini-table-lamp.docx
+- ./embedded/keystudio/praticas/p13_mini-table-lamp/p13_mini-table-lamp.ino
+- ./embedded/keystudio/praticas/p14_tilt-and-led/p14_tilt-and-led.docx
+- ./embedded/keystudio/praticas/p14_tilt-and-led/p14_tilt-and-led.ino
+- ./embedded/keystudio/praticas/p15_burglar_alarm/p15_burglar_alarm.docx
+- ./embedded/keystudio/praticas/p15_burglar_alarm/p15_burglar_alarm.ino
+- ./embedded/keystudio/praticas/p16_I2C_128/p16_I2C_128.docx
+- ./embedded/keystudio/praticas/p16_I2C_128/p16_I2C_128.ino
+- ./embedded/keystudio/praticas/p17_small_fan/p17_small_fan.docx
+- ./embedded/keystudio/praticas/p17_small_fan/p17_small_fan.ino
+- ./embedded/keystudio/praticas/p18_servo_sweep/p18_servo_sweep.docx
+- ./embedded/keystudio/praticas/p18_servo_sweep/p18_servo_sweep.ino
+- ./embedded/keystudio/praticas/p18_servo_sweep/~$oject 19：Servo Sweep.docx
+- ./embedded/keystudio/praticas/p19_stepping_motor/p19_stepping_motor.docx
+- ./embedded/keystudio/praticas/p19_stepping_motor/p19_stepping_motor.ino
+- ./embedded/keystudio/praticas/p20_relay/p20_relay.docx
+- ./embedded/keystudio/praticas/p20_relay/p20_relay.ino
+- ./embedded/keystudio/praticas/p21_dimming_light/p21_dimming_light.docx
+- ./embedded/keystudio/praticas/p21_dimming_light/p21_dimming_light.ino
+- ./embedded/keystudio/praticas/p22_flame_alarm/p22_flame_alarm.docx
+- ./embedded/keystudio/praticas/p22_flame_alarm/p22_flame_alarm/p23_flame_alarm.ino
+- ./embedded/keystudio/praticas/p23_night_lamp/p23_night_lamp.docx
+- ./embedded/keystudio/praticas/p23_night_lamp/p23_night_lamp/p24_night_lamp.ino
+- ./embedded/keystudio/praticas/p24_human_induction_lamp/Project_25_Human_Induction_Lamp.ino
+- ./embedded/keystudio/praticas/p24_human_induction_lamp/p24_human_induction_lamp.docx
+- ./embedded/keystudio/praticas/p25_sound_control_fan/p26_sound_control_fan.docx
+- ./embedded/keystudio/praticas/p25_sound_control_fan/p26_sound_control_fan.ino
+- ./embedded/keystudio/praticas/p26_temperature_measurement/p27_temperature_measurement.docx
+- ./embedded/keystudio/praticas/p26_temperature_measurement/p27_temperature_measurement.ino
+- ./embedded/keystudio/praticas/p27_rocker_control_light/p28_rocker_control_light.docx
+- ./embedded/keystudio/praticas/p27_rocker_control_light/p28_rocker_control_light.ino
+- ./embedded/keystudio/praticas/p28_temperature_humidity_meter/p28_temperature_humidity_meter.docx
+- ./embedded/keystudio/praticas/p28_temperature_humidity_meter/p28_temperature_humidity_meter.ino
+- ./embedded/keystudio/praticas/p29_ultrasonic_ranger/p29_ultrasonic_ranger.docx
+- ./embedded/keystudio/praticas/p29_ultrasonic_ranger/p29_ultrasonic_ranger.ino
+- ./embedded/keystudio/praticas/p30_temperature_instrument/p30_temperature_instrument.docx
+- ./embedded/keystudio/praticas/p30_temperature_instrument/p30_temperature_instrument.ino
+- ./embedded/keystudio/praticas/p31_RFID/Project_32.1_RFID_Read_UID/Project_32.1_RFID_Read_UID.ino
+- ./embedded/keystudio/praticas/p31_RFID/p31_RFID.docx
+- ./embedded/keystudio/praticas/p31_RFID/p31_RFID.ino
+- ./embedded/keystudio/praticas/p32_keypad_door/Keypad.cpp
+- ./embedded/keystudio/praticas/p32_keypad_door/Keypad.h
+- ./embedded/keystudio/praticas/p32_keypad_door/p32_keypad_door.docx
+- ./embedded/keystudio/praticas/p32_keypad_door/p32_keypad_door.ino
+- ./embedded/keystudio/praticas/p33_ir_control_sound_and_led/IR.cpp
+- ./embedded/keystudio/praticas/p33_ir_control_sound_and_led/IR.h
+- ./embedded/keystudio/praticas/p33_ir_control_sound_and_led/p33.1_decoded_ir_Signal.ino
+- ./embedded/keystudio/praticas/p33_ir_control_sound_and_led/p33_ir_control_sound_and_led.docx
+- ./embedded/keystudio/praticas/p33_ir_control_sound_and_led/p33_ir_control_sound_and_led.ino
+- ./embedded/keystudio/praticas/p34_WiFi_test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341PT.DLL
+- ./embedded/keystudio/praticas/p34_WiFi_test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341S64.SYS
+- ./embedded/keystudio/praticas/p34_WiFi_test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341S98.SYS
+- ./embedded/keystudio/praticas/p34_WiFi_test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341SER.INF
+- ./embedded/keystudio/praticas/p34_WiFi_test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341SER.SYS
+- ./embedded/keystudio/praticas/p34_WiFi_test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/CH341SER.VXD
+- ./embedded/keystudio/praticas/p34_WiFi_test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/SETUP.EXE
+- ./embedded/keystudio/praticas/p34_WiFi_test/CH340 Driver File-Windows/usb_ch341_3.1.2009.06/ch341SER.CAT
+- ./embedded/keystudio/praticas/p34_WiFi_test/ESP8266 tools  are developed by Arduino IDE/esp8266one-click installation of Arduino board.exe
+- ./embedded/keystudio/praticas/p34_WiFi_test/p34_WiFi_test.docx
+- ./embedded/keystudio/praticas/p34_WiFi_test/p34_WiFi_test.ino
+- ./embedded/keystudio/praticas/p35_WiFi_smart_home/ESP8266_Code.ino
+- ./embedded/keystudio/praticas/p35_WiFi_smart_home/p35_WiFi_smart_home.docx
+- ./embedded/keystudio/praticas/p35_WiFi_smart_home/p35_WiFi_smart_home.ino
+- ./embedded/pico/blink/.gitignore
+- ./embedded/pico/blink/.vscode/c_cpp_properties.json
+- ./embedded/pico/blink/.vscode/cmake-kits.json
+- ./embedded/pico/blink/.vscode/extensions.json
+- ./embedded/pico/blink/.vscode/launch.json
+- ./embedded/pico/blink/.vscode/settings.json
+- ./embedded/pico/blink/.vscode/tasks.json
+- ./embedded/pico/blink/CMakeLists.txt
+- ./embedded/pico/blink/blink.c
+- ./embedded/pico/blink/pico_sdk_import.cmake
+- ./embedded/pico/cleaning/.gitignore
+- ./embedded/pico/cleaning/.vscode/c_cpp_properties.json
+- ./embedded/pico/cleaning/.vscode/cmake-kits.json
+- ./embedded/pico/cleaning/.vscode/extensions.json
+- ./embedded/pico/cleaning/.vscode/launch.json
+- ./embedded/pico/cleaning/.vscode/settings.json
+- ./embedded/pico/cleaning/.vscode/tasks.json
+- ./embedded/pico/cleaning/CMakeLists.txt
+- ./embedded/pico/cleaning/cleaning.c
+- ./embedded/pico/cleaning/pico_sdk_import.cmake
+- ./scripts/raspberry_zero_2w/firstboot.sh
+- ./scripts/raspberry_zero_2w/firstrun.service
